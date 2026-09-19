@@ -12,13 +12,14 @@ jobs:
       matrix:
         python: ['3.11', '3.12', '3.13']
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
           python-version: ${{ matrix.python }}
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           repository: entrotter/sdk-python
+          ref: b0c2ba3bba411e548af44101ae06e879bd7b5dc0
           path: _deps/sdk
       - name: Unit tests without API keys
         run: PYTHONPATH=src:_deps/sdk/src python -m unittest discover -s tests -v

@@ -1,5 +1,6 @@
 from contextlib import redirect_stdout, redirect_stderr
 import io
+import hashlib
 import json
 import tempfile
 from pathlib import Path
@@ -8,6 +9,21 @@ from unittest.mock import patch
 from entrotter_cli.main import parser, main, read_json
 
 class CLITests(unittest.TestCase):
+    def test_hashed_report_with_malformed_mode_has_no_traceback(self):
+        report = json.loads((Path(__file__).parent / 'data/report.json').read_text())
+        report.pop('artifact_id')
+        report['mode'] = []
+        canonical = json.dumps(report, sort_keys=True, separators=(',', ':'), ensure_ascii=True).encode()
+        report['artifact_id'] = hashlib.sha256(canonical).hexdigest()
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'malformed.json'
+            path.write_text(json.dumps(report))
+            error = io.StringIO()
+            with redirect_stderr(error):
+                self.assertEqual(main(['verify', str(path)]), 1)
+            self.assertIn('Unknown result mode', error.getvalue())
+            self.assertNotIn('Traceback', error.getvalue())
+
     def test_local_option(self): self.assertTrue(parser().parse_args(['run','x.json','--local']).local)
     def test_doctor(self):
         f=io.StringIO()

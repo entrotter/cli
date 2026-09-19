@@ -1,0 +1,7 @@
+{
+  "sdk_repository": "https://github.com/entrotter/sdk-python",
+  "sdk_commit": "b0c2ba3bba411e548af44101ae06e879bd7b5dc0",
+  "sdk_package": "entrotter-sdk==0.1.0",
+  "sample_report": "tests/data/report.json",
+  "sample_provenance": "Synthetic liquidity-shock report copied byte-for-byte from entrotter.github.io ab121348b0ffbec5650f9eadf0a0b11f639d9780; not historical market evidence"
+}

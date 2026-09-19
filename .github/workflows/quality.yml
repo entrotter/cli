@@ -1,0 +1,65 @@
+name: CLI quality and Python dependency audit
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          repository: entrotter/sdk-python
+          ref: b0c2ba3bba411e548af44101ae06e879bd7b5dc0
+          path: _deps/sdk
+          persist-credentials: false
+      - name: Install only hash-verified locked tool wheels
+        run: |
+          python -m venv .venv
+          .venv/bin/python -m pip install --require-hashes --only-binary=:all: --index-url https://pypi.org/simple -r requirements-quality.txt
+          .venv/bin/python -m pip check
+      - name: Build the unpublished SDK only from the pinned source checkout
+        run: |
+          .venv/bin/python -m build --no-isolation --wheel --outdir .quality/sdk-wheels _deps/sdk
+          .venv/bin/python -m pip install --no-index --no-deps .quality/sdk-wheels/*.whl
+          .venv/bin/python -m pip check
+      - name: Lint and formatting across production source and scripts
+        run: |
+          .venv/bin/python -m ruff check src scripts typings
+          .venv/bin/python -m ruff format --check src scripts typings
+      - name: Check types including unannotated function bodies
+        run: .venv/bin/python -m mypy src scripts
+      - name: Full security scan without suppressions
+        run: |
+          mkdir -p .quality
+          .venv/bin/python -m bandit --ignore-nosec -r src scripts -f json -o .quality/bandit.json
+          .venv/bin/python scripts/check_security.py
+      - name: Verify declared dependency coverage and query Python advisories
+        run: |
+          .venv/bin/python scripts/check_dependency_manifest.py --sdk-commit "$(git -C _deps/sdk rev-parse HEAD)"
+          .venv/bin/python -m pip_audit --strict --require-hashes --disable-pip -r requirements-quality.txt --progress-spinner off -f json -o .quality/dependencies.json
+      - name: Build wheel with the pinned build dependency
+        run: .venv/bin/python -m build --no-isolation --wheel --outdir .quality/wheels
+      - name: Check CLI and SDK wheels without an engine or package registry
+        run: |
+          python -m venv "$RUNNER_TEMP/cli-wheel-venv"
+          "$RUNNER_TEMP/cli-wheel-venv/bin/python" -m pip install --no-index --no-deps .quality/wheels/*.whl .quality/sdk-wheels/*.whl
+          "$RUNNER_TEMP/cli-wheel-venv/bin/python" -m pip check
+          "$RUNNER_TEMP/cli-wheel-venv/bin/python" -I -c 'import entrotter_cli, entrotter_sdk; import importlib.util; from pathlib import Path; import sys; assert importlib.util.find_spec("entrotter_engine") is None; assert all(Path(m.__file__).resolve().is_relative_to(Path(sys.prefix).resolve()) for m in [entrotter_cli, entrotter_sdk])'
+          "$RUNNER_TEMP/cli-wheel-venv/bin/python" -I -m entrotter_cli doctor
+          "$RUNNER_TEMP/cli-wheel-venv/bin/python" -I -m entrotter_cli verify tests/data/report.json
+          "$RUNNER_TEMP/cli-wheel-venv/bin/python" -I -m entrotter_cli inspect tests/data/report.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: cli-quality-reports
+          path: .quality/
+          include-hidden-files: true
+          if-no-files-found: error
