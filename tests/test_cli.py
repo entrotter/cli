@@ -5,7 +5,7 @@ import tempfile
 from pathlib import Path
 import unittest
 from unittest.mock import patch
-from entrotter_cli.main import parser, main, read_json
+from entrotter_cli.main import parser, main, read_json, error_guidance
 
 class CLITests(unittest.TestCase):
     def test_local_option(self): self.assertTrue(parser().parse_args(['run','x.json','--local']).local)
@@ -28,5 +28,22 @@ class CLITests(unittest.TestCase):
         f=io.StringIO()
         with redirect_stderr(f): self.assertEqual(main(['verify','/no/such/report.json']),1)
         self.assertNotIn('Traceback',f.getvalue())
+
+    def test_error_guidance_does_not_repeat_or_expose_credentials(self):
+        hint = error_guidance('Engine returned HTTP 401; POST requests are not automatically retried')
+        self.assertIn('ENTROTTER_API_TOKEN', hint)
+        self.assertNotIn('TOP_SECRET', hint)
+
+    def test_connection_guidance_recommends_health_check(self):
+        hint = error_guidance('Engine is unavailable or returned invalid JSON')
+        self.assertIn('/health', hint)
+        self.assertIn('--api', hint)
+
+    def test_schema_guidance_identifies_workspace_mismatch(self):
+        hint = error_guidance('Malformed result envelope')
+        self.assertIn('v0.1 result schema', hint)
+
+    def test_unknown_error_has_no_misleading_guidance(self):
+        self.assertIsNone(error_guidance('Input file exceeds size limit'))
 
 if __name__=='__main__': unittest.main()

@@ -24,6 +24,26 @@ PYTHONPATH=src:../sdk-python/src python3 -m unittest discover -s tests -v
 bearer token comes from ENTROTTER_API_TOKEN, never from command-line arguments.
 `doctor` reports only whether credentials exist, never their values.
 
+## Troubleshooting
+
+Common failures keep the diagnostic separate from the sensitive configuration:
+
+| Situation | Typical output / next step |
+| --- | --- |
+| `--local` engine package is unavailable | `Missing local engine package. Add engine/src to PYTHONPATH or omit --local to use the API.` (exit 2) |
+| Local API refuses the connection or returns invalid JSON | `Error: Engine is unavailable or returned invalid JSON` (exit 1), followed by a `/health` and `--api` check. |
+| API returns HTTP 401/403 | Check API authorization and `ENTROTTER_API_TOKEN`; the CLI never prints the token. |
+| API returns another HTTP error | Check engine health/logs. A run POST is not retried automatically; inspect its outcome before retrying. |
+| Result hash/schema/mode/envelope is unsupported | `Error: Result is missing a valid content hash or schema version`; update workspace packages together and verify compatibility with the v0.1 result schema. |
+
+These messages describe local CLI/SDK behavior; the CLI does not diagnose an
+engine's internal cause. Reproduce the guidance checks with
+`PYTHONPATH=src:../sdk-python/src python3 -m unittest discover -s tests -v`.
+The tests exercise the guidance without contacting a remote service or
+printing a token. To see the connection message against an intentionally closed
+loopback port, run
+`PYTHONPATH=src:../sdk-python/src python3 -m entrotter_cli run tests/fixtures/empty-scenario.json --api http://127.0.0.1:1`.
+
 No command submits a transaction to a live chain. The CLI does not require
 or accept a real wallet private key. Monetary results describe a model and
 are not a trading recommendation.

@@ -28,6 +28,23 @@ def read_json(path: str, limit: int):
     return json.loads(data)
 
 
+def error_guidance(message: str) -> str | None:
+    """Return a safe next step for common SDK/API failures."""
+    if message == "Engine is unavailable or returned invalid JSON":
+        return "Check the local API with `entrotter doctor` and `curl http://127.0.0.1:8787/health`; pass --api if it listens elsewhere."
+    if message.startswith("Engine returned HTTP 401") or message.startswith("Engine returned HTTP 403"):
+        return "Check API authorization and ENTROTTER_API_TOKEN; the token value is never shown by the CLI."
+    if message.startswith("Engine returned HTTP "):
+        return "Check the engine's health and logs. A run POST is not retried automatically; inspect its outcome before retrying."
+    if message in {
+        "Result is missing a valid content hash or schema version",
+        "Unknown result mode",
+        "Malformed result envelope",
+    }:
+        return "The engine response is incompatible with this CLI/SDK. Update the workspace packages together and check the v0.1 result schema."
+    return None
+
+
 def main(argv=None) -> int:
     args = parser().parse_args(argv)
     try:
@@ -60,11 +77,17 @@ def main(argv=None) -> int:
                                   "candidate": report["candidate"]["metrics"],
                                   "comparison": report["comparison"], "assumptions": report["assumptions"]}, indent=2))
         return 0
-    except ImportError:
-        print("Missing local package. Use the workspace bootstrap; these packages are not yet published to PyPI.", file=sys.stderr)
+    except ImportError as e:
+        if args.command == "run" and args.local and "entrotter_engine" in str(e):
+            print("Missing local engine package. Add engine/src to PYTHONPATH or omit --local to use the API.", file=sys.stderr)
+        else:
+            print("Missing local SDK package. Use the workspace bootstrap; these packages are not yet published to PyPI.", file=sys.stderr)
         return 2
     except (ValueError, OSError, RuntimeError) as e:
         print(f"Error: {e}", file=sys.stderr)
+        hint = error_guidance(str(e))
+        if hint:
+            print(f"Next step: {hint}", file=sys.stderr)
         return 1
 
 if __name__ == "__main__":
