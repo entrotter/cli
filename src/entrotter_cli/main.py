@@ -4,6 +4,7 @@ import json
 import os
 from pathlib import Path
 import shutil
+import stat
 import sys
 import tempfile
 
@@ -29,6 +30,11 @@ def parser():
         action="store_true",
         help="Import the separately installed engine; no API server needed",
     )
+    r.add_argument(
+        "--native",
+        action="store_true",
+        help="With --local only: trusted development without whole-process Docker limits",
+    )
     r.add_argument("--api", default="http://127.0.0.1:8787")
     v = sub.add_parser(
         "verify", help="Check the SHA-256 artifact hash (not economic correctness)"
@@ -40,7 +46,11 @@ def parser():
 
 
 def read_json(path: str, limit: int):
-    with open(path, "rb") as f:
+    with os.fdopen(
+        os.open(path, os.O_RDONLY | getattr(os, "O_NONBLOCK", 0)), "rb"
+    ) as f:
+        if not stat.S_ISREG(os.fstat(f.fileno()).st_mode):
+            raise ValueError("Input must be a regular file")
         data = f.read(limit + 1)
     if len(data) > limit:
         raise ValueError("Input file exceeds size limit")
@@ -79,6 +89,10 @@ def main(argv=None) -> int:
                     {
                         "python": sys.version.split()[0],
                         "anvil_installed": shutil.which("anvil") is not None,
+                        "docker_installed": shutil.which("docker") is not None,
+                        "worker_image_configured": bool(
+                            os.getenv("ENTROTTER_WORKER_IMAGE")
+                        ),
                         "archive_rpc_configured": bool(os.getenv("ENTROTTER_RPC_URL")),
                         "api_token_configured": bool(os.getenv("ENTROTTER_API_TOKEN")),
                     },
@@ -89,11 +103,16 @@ def main(argv=None) -> int:
         from entrotter_sdk import Client, RunResult
 
         if args.command == "run":
+            if args.native and not args.local:
+                raise ValueError(
+                    "--native requires --local; API execution mode is server-owned"
+                )
             scenario = read_json(args.scenario, 262144)
             if args.local:
-                from entrotter_engine.runner import run
+                from entrotter_engine.runner import run, run_native
 
-                result = RunResult.parse(run(scenario)).report
+                executor = run_native if args.native else run
+                result = RunResult.parse(executor(scenario)).report
             else:
                 client = Client(args.api, token=os.getenv("ENTROTTER_API_TOKEN"))
                 result = client.run(scenario).report

@@ -21,7 +21,10 @@ From this repository, run unit tests with:
 PYTHONPATH=src:../sdk-python/src python3 -m unittest discover -s tests -v
 ```
 
-`--local` additionally requires the separately installed engine. Without it,
+`--local` additionally requires the matching separately installed engine with
+`run_native` and the bounded default runner. Configure its local Docker worker
+image/socket before execution; normal local runs do not fall back if Docker is
+unavailable. Follow that engine checkout's worker setup instructions. Without it,
 `run` calls the API at http://127.0.0.1:8787 (override with `--api`). The optional
 bearer token comes from ENTROTTER_API_TOKEN, never from command-line arguments.
 `doctor` reports only whether credentials exist, never their values.
@@ -47,7 +50,7 @@ not add an engine runtime dependency or change the v0.1 JSON format.
 
 Ruff lint/format and normal mypy (including unannotated function bodies) check
 `src/` and `scripts/`; Ruff also checks `typings/`. The optional engine stub defines
-only the v0.1 `run(dict) -> dict` boundary. It is not an engine implementation or
+the v0.1 `run(dict) -> dict` and explicit `run_native(dict) -> dict` boundaries. It is not an engine implementation or
 an engine installation requirement. Real engine compatibility is verified by the
 separate CLI→SDK→engine workspace integration, including actual Anvil execution.
 
@@ -94,3 +97,21 @@ engine or registry access, then runs doctor, verify and inspect on the committed
 synthetic report. Its provenance is recorded in `quality-inputs.json`. The report
 is a test fixture, not historical performance. Actions use immutable commits;
 quality reports and unpublished MIT wheels remain available as CI artifacts.
+
+## Explicit native development mode
+
+Normal `run --local` uses the matching engine's bounded default. To reproduce a
+trusted synthetic example without Docker, opt out explicitly:
+
+```bash
+python3 -m entrotter_cli run scenarios/fixtures/liquidity-shock.json --local --native -o report.json
+```
+
+`--native` has no whole-process CPU/RSS sandbox and is accepted only with
+`--local`. A client cannot change an API server's operator-selected execution mode.
+An older engine without the explicit native primitive is rejected instead of
+silently using its former native default. Doctor reports Docker availability and
+whether an image is configured, not daemon readiness or image verification.
+Scenario/report inputs must be regular files; reads remain size-bounded and
+FIFOs/devices are rejected without waiting for a writer. Output retention and
+aggregate concurrent CLI invocations remain open resource-budget requirements.

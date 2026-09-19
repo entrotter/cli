@@ -3,6 +3,9 @@ import io
 import hashlib
 import json
 import tempfile
+import os
+import subprocess
+import sys
 from pathlib import Path
 import unittest
 from unittest.mock import patch
@@ -24,6 +27,12 @@ class CLITests(unittest.TestCase):
             self.assertIn('Unknown result mode', error.getvalue())
             self.assertNotIn('Traceback', error.getvalue())
 
+    def test_native_cannot_override_an_api_server(self):
+        error = io.StringIO()
+        with redirect_stderr(error):
+            self.assertEqual(main(['run', '/does/not/exist', '--native']), 1)
+        self.assertIn('--native requires --local', error.getvalue())
+
     def test_local_option(self): self.assertTrue(parser().parse_args(['run','x.json','--local']).local)
     def test_doctor(self):
         f=io.StringIO()
@@ -33,6 +42,16 @@ class CLITests(unittest.TestCase):
         f=io.StringIO()
         with patch.dict('os.environ',{'ENTROTTER_RPC_URL':'TOP_SECRET'}),redirect_stdout(f): main(['doctor'])
         self.assertNotIn('TOP_SECRET',f.getvalue())
+    @unittest.skipUnless(hasattr(os, 'mkfifo'), 'POSIX FIFO regression')
+    def test_fifo_input_cannot_wait_for_a_writer(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'report.fifo'
+            os.mkfifo(path)
+            result = subprocess.run([sys.executable, '-m', 'entrotter_cli', 'verify', str(path)],
+                                    capture_output=True, text=True, timeout=2)
+            self.assertEqual(result.returncode, 1)
+            self.assertIn('regular file', result.stderr)
+
     def test_size_limit(self):
         with tempfile.TemporaryDirectory() as d:
             p=Path(d)/'x';p.write_text('x'*100)
