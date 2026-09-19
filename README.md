@@ -27,3 +27,16 @@ bearer token comes from ENTROTTER_API_TOKEN, never from command-line arguments.
 No command submits a transaction to a live chain. The CLI does not require
 or accept a real wallet private key. Monetary results describe a model and
 are not a trading recommendation.
+
+Report exports are limited to 8 MiB of serialized file contents. The CLI writes
+an exclusively created private temporary file and atomically replaces the chosen
+destination only after a successful write. An oversized report or write failure
+leaves the previous destination intact; no partial report is published. Existing
+symlinks at the destination are replaced, not followed. Exports across different
+paths have no aggregate retention quota; manage free disk space locally.
+
+A bounded engine API may return 503 when connections/storage are busy or 507
+when its report directory is full. The SDK reports that status and never retries
+a POST automatically. Export/remove old reports locally before retrying a full
+store. The CLI remains usable with the SDK alone for API calls; this change does
+not add an engine runtime dependency or change the v0.1 JSON format.

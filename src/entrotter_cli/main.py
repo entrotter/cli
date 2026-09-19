@@ -5,6 +5,9 @@ import os
 from pathlib import Path
 import shutil
 import sys
+import tempfile
+
+MAX_EXPORT_BYTES = 8 * 1024 * 1024
 
 
 def parser():
@@ -28,6 +31,25 @@ def read_json(path: str, limit: int):
     return json.loads(data)
 
 
+def write_report(report: dict, path: Path):
+    raw = (json.dumps(report, indent=2, ensure_ascii=True, allow_nan=False) + "\n").encode()
+    if len(raw) > MAX_EXPORT_BYTES:
+        raise ValueError("Report export exceeds 8 MiB")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    descriptor, temporary = tempfile.mkstemp(prefix='.report-', suffix='.tmp', dir=path.parent)
+    try:
+        with os.fdopen(descriptor, 'wb') as output:
+            output.write(raw)
+            output.flush()
+            os.fsync(output.fileno())
+        os.replace(temporary, path)
+    finally:
+        try:
+            os.unlink(temporary)
+        except FileNotFoundError:
+            pass
+
+
 def main(argv=None) -> int:
     args = parser().parse_args(argv)
     try:
@@ -46,8 +68,7 @@ def main(argv=None) -> int:
                 client = Client(args.api, token=os.getenv("ENTROTTER_API_TOKEN"))
                 result = client.run(scenario).report
             path = Path(args.output)
-            path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")
+            write_report(result, path)
             print(f"{result['mode']} | {result['artifact_id']} | {path}")
         else:
             report = read_json(args.report, 16*1024*1024)
