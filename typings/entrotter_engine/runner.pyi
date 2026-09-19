@@ -1,0 +1,3 @@
+"""v0.1 optional engine boundary; real behavior is checked by workspace CI."""
+
+def run(scenario: dict) -> dict: ...

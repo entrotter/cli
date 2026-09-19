@@ -42,3 +42,55 @@ when its report directory is full. The SDK reports that status and never retries
 a POST automatically. Export/remove old reports locally before retrying a full
 store. The CLI remains usable with the SDK alone for API calls; this change does
 not add an engine runtime dependency or change the v0.1 JSON format.
+
+## Quality checks and local package provenance
+
+Ruff lint/format and normal mypy (including unannotated function bodies) check
+`src/` and `scripts/`; Ruff also checks `typings/`. The optional engine stub defines
+only the v0.1 `run(dict) -> dict` boundary. It is not an engine implementation or
+an engine installation requirement. Real engine compatibility is verified by the
+separate CLI→SDK→engine workspace integration, including actual Anvil execution.
+
+The CLI still declares `entrotter-sdk==0.1.0`, but neither package is published.
+Both unit and quality workflows check out the exact SDK commit recorded in
+[quality-inputs.json](quality-inputs.json). Quality CI builds that local source
+with the pinned build tool and installs only that wheel using `--no-index --no-deps`.
+It never resolves an unrelated registry package. To reproduce from this checkout:
+
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install --require-hashes --only-binary=:all: --index-url https://pypi.org/simple -r requirements-quality.txt
+mkdir -p _deps
+git clone https://github.com/entrotter/sdk-python.git _deps/sdk
+git -C _deps/sdk checkout --detach b0c2ba3bba411e548af44101ae06e879bd7b5dc0
+.venv/bin/python -m build --no-isolation --wheel --outdir .quality/sdk-wheels _deps/sdk
+.venv/bin/python -m pip install --no-index --no-deps .quality/sdk-wheels/*.whl
+.venv/bin/python -m pip check
+.venv/bin/python -m ruff check src scripts typings
+.venv/bin/python -m ruff format --check src scripts typings
+.venv/bin/python -m mypy src scripts
+mkdir -p .quality
+.venv/bin/python -m bandit --ignore-nosec -r src scripts -f json -o .quality/bandit.json
+.venv/bin/python scripts/check_security.py
+.venv/bin/python scripts/check_dependency_manifest.py --sdk-commit "$(git -C _deps/sdk rev-parse HEAD)"
+.venv/bin/python -m pip_audit --strict --require-hashes --disable-pip -r requirements-quality.txt --progress-spinner off -f json -o .quality/dependencies.json
+.venv/bin/python -m build --no-isolation --wheel --outdir .quality/wheels
+```
+
+All 42 tool/build packages are version/hash locked and audited with no ignored
+advisories. The local SDK is source-checked separately, not claimed to have a
+registry advisory identity; its runtime and optional dependencies must be empty,
+and its build dependencies must be covered by the same audited lock. Unknown,
+unpinned or changed dependencies fail. Update the lock with pinned `pip-compile`
+when changing `requirements-quality.in`, then rerun the full CI suite.
+
+Bandit runs every default rule with `--ignore-nosec`; any finding fails. The
+complete scan is retained, and an additional check rejects empty/partial scans
+and skipped rules. This does not prove security of native tools or the OS. Normal
+mypy checks and the optional engine stub do not fully type arbitrary JSON.
+
+The package smoke check installs CLI/SDK wheels into a fresh venv without an
+engine or registry access, then runs doctor, verify and inspect on the committed
+synthetic report. Its provenance is recorded in `quality-inputs.json`. The report
+is a test fixture, not historical performance. Actions use immutable commits;
+quality reports and unpublished MIT wheels remain available as CI artifacts.
