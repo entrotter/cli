@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "entrotter-cli"
+version = "0.1.0"
+description = "Command-line tools for Entrotter experiments"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+authors = [{name = "Entrotter contributors"}]
+dependencies = ["entrotter-sdk==0.1.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+entrotter = "entrotter_cli.main:main"
