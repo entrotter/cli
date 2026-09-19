@@ -38,7 +38,7 @@ an exclusively created private temporary file and atomically replaces the chosen
 destination only after a successful write. An oversized report or write failure
 leaves the previous destination intact; no partial report is published. Existing
 symlinks at the destination are replaced, not followed. Exports across different
-paths have no aggregate retention quota; manage free disk space locally.
+paths share the export budget described below.
 
 A bounded engine API may return 503 when connections/storage are busy or 507
 when its report directory is full. The SDK reports that status and never retries
@@ -113,5 +113,50 @@ An older engine without the explicit native primitive is rejected instead of
 silently using its former native default. Doctor reports Docker availability and
 whether an image is configured, not daemon readiness or image verification.
 Scenario/report inputs must be regular files; reads remain size-bounded and
-FIFOs/devices are rejected without waiting for a writer. Output retention and
-aggregate concurrent CLI invocations remain open resource-budget requirements.
+FIFOs/devices are rejected without waiting for a writer. Output retention uses the shared budget below. Aggregate host process admission
+remains an open resource-budget requirement.
+
+## Shared report export budget
+
+Standalone and engine CLI exports share a private POSIX bookkeeping directory:
+`~/.local/state/entrotter/export-budget-v1`. Operators may set
+`ENTROTTER_EXPORT_STATE_DIR` to one other private directory; all cooperating
+clients must use that same directory. Requested `--output` paths keep their
+existing meaning. No engine/SDK runtime dependency is added by this mechanism.
+
+The budget is 128 MiB of tracked file contents and 128 files across output paths,
+including reserved/incomplete writes. Each report remains at most 8 MiB. Admission
+uses a nonblocking process lock. A durable reservation precedes creation of output
+bytes, and replacement reserves the old file plus the new temporary file. A full
+or busy budget rejects the write without replacing its prior destination. An
+identical complete tracked export is idempotent, including at capacity.
+
+```bash
+python3 -m entrotter_cli exports
+```
+
+The command shows charged paths, pending temporary files and current usage.
+Remove unwanted reports or listed abandoned temporary files locally; subsequent
+admission reconciles missing files. Completed reports are never auto-deleted.
+Do not delete/reset the ledger to free space: that discards tracking of existing
+outputs. Invalid, inaccessible or insecure bookkeeping fails closed.
+
+A process killed before rename can leave a temporary file, whose full reserved
+size remains charged. After rename, the reservation recognizes only an exact
+size/SHA-256 match at the final path. Ambiguous state retains its charge. Ordinary
+exceptions remove only the owned temporary inode. Ledger contents are limited
+to 256 KiB, with at most one additional 256-KiB staging file and an empty lock.
+
+These are application file-content bounds for matching writers using one state
+root. They do not constrain pre-existing untracked files, operator moves/renames,
+noncooperating programs, older clients, separate state roots, filesystem metadata,
+image/VM storage or all host processes. State is private to the local operator;
+paths/report contents are not uploaded. POSIX locking is required even for API-only
+CLI exports. The engine API's dedicated report store retains its separate quota.
+A run can complete before an export is refused; do not blindly retry an API POST.
+
+The stdlib-only `export_budget.py` is deliberately vendored identically in the
+independent engine and CLI packages. Cross-repository CI requires byte equality
+and verifies shared admission using both real CLIs and separate mixed processes.
+Any protocol change must preserve this shared-state contract or use a deliberately
+migrated protocol version; never silently reset existing reservations.

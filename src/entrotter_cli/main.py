@@ -6,7 +6,7 @@ from pathlib import Path
 import shutil
 import stat
 import sys
-import tempfile
+from .export_budget import ExportBudget
 
 MAX_EXPORT_BYTES = 8 * 1024 * 1024
 
@@ -20,6 +20,7 @@ def parser():
     sub.add_parser(
         "doctor", help="Report local prerequisites, without disclosing credentials"
     )
+    sub.add_parser("exports", help="Inspect shared export quota and charged paths")
     r = sub.add_parser(
         "run", help="Run a scenario locally or against a local engine API"
     )
@@ -63,26 +64,15 @@ def write_report(report: dict, path: Path):
     ).encode()
     if len(raw) > MAX_EXPORT_BYTES:
         raise ValueError("Report export exceeds 8 MiB")
-    path.parent.mkdir(parents=True, exist_ok=True)
-    descriptor, temporary = tempfile.mkstemp(
-        prefix=".report-", suffix=".tmp", dir=path.parent
-    )
-    try:
-        with os.fdopen(descriptor, "wb") as output:
-            output.write(raw)
-            output.flush()
-            os.fsync(output.fileno())
-        os.replace(temporary, path)
-    finally:
-        try:
-            os.unlink(temporary)
-        except FileNotFoundError:
-            pass
+    ExportBudget().write(raw, path)
 
 
 def main(argv=None) -> int:
     args = parser().parse_args(argv)
     try:
+        if args.command == "exports":
+            print(json.dumps(ExportBudget().snapshot(), indent=2))
+            return 0
         if args.command == "doctor":
             print(
                 json.dumps(
