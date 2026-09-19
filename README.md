@@ -1,5 +1,7 @@
 # Entrotter CLI
 
+[Workspace setup](https://github.com/entrotter/entrotter#quick-start-without-dependencies-or-an-api-key) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [MIT license](LICENSE)
+
 A small Python 3.11+ interface for scenario execution and result inspection.
 
 Install the sibling `sdk-python` source before this package. Neither is
