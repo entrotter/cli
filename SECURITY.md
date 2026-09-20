@@ -15,3 +15,9 @@ maintainers in an issue to enable a private channel without disclosing details.
 RPC URLs can contain secrets: never include them in reports, commands in
 screenshots, logs, pull requests, or issue bodies. The optional fork URL may
 be visible to other processes owned by your OS user; run on a trusted machine.
+
+CLI export accounting assumes cooperating versions sharing one private operator
+state directory. Pending reservations survive abrupt process death and remain
+charged. Never reset the ledger while retaining its outputs. Operator file moves,
+other applications, old clients and distinct state roots are outside this budget;
+this is not a whole-filesystem quota. Inspect usage with the exports command.

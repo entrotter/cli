@@ -14,3 +14,9 @@ artifacts/
 node_modules/
 playwright-report/
 test-results/
+
+# Local quality tools and reports
+.quality/
+.mypy_cache/
+.ruff_cache/
+_deps/
