@@ -1,0 +1,8 @@
+test_actual_default_price_replay_exports_full_verified_records (test_observed_cli.ActualObservedCLI.test_actual_default_price_replay_exports_full_verified_records) ... ok
+test_missing_worker_fails_without_export_or_native_fallback (test_observed_cli.ActualObservedCLI.test_missing_worker_fails_without_export_or_native_fallback) ... ok
+test_real_SIGTERM_cancels_owned_worker_and_preserves_destination (test_observed_cli.ActualObservedCLI.test_real_SIGTERM_cancels_owned_worker_and_preserves_destination) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 22.459s
+
+OK

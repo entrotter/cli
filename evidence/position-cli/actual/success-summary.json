@@ -1,0 +1,43 @@
+{
+  "returncode": 0,
+  "stdout": {
+    "artifact_id": "46279d46c4450e117d752f3a69e5ff9d321c08f2c75bc1ac31d353c688525428",
+    "trace_artifact_id": "a62c5974906aa331219bb3af305171a8e91e909130558277b4ea443d2b807357",
+    "price_artifact_id": "c0497fa55b9c6a6911136addbad2e3f3a4298429d13b5c32c8e40eaa6a2568a2",
+    "account": "0x16aa9154557f1394089db90d3cbe212d9a7f33bb",
+    "output": "/var/folders/wg/yck688tn1pn8cvxftb4_x19r0000gn/T/tmpnn4ezanp/observed.json",
+    "classification": {
+      "base_unit": 100000000,
+      "baseline": {
+        "available_borrows_base": 16845329769548,
+        "health_factor_wad": 2103240994573506125,
+        "liquidation_threshold_bps": 8300,
+        "ltv_bps": 8050,
+        "total_collateral_base": 41049031017510,
+        "total_debt_base": 16199140199548
+      },
+      "baseline_health_status": "at_or_above_one",
+      "candidate": {
+        "available_borrows_base": 16926958735672,
+        "health_factor_wad": 2107093164381383462,
+        "liquidation_threshold_bps": 8300,
+        "ltv_bps": 8050,
+        "total_collateral_base": 41175556915484,
+        "total_debt_base": 16219364581293
+      },
+      "candidate_health_status": "at_or_above_one",
+      "complete_account_views": true,
+      "differences": {
+        "available_borrows_base": 81628966124,
+        "health_factor_wad": 3852169807877337,
+        "liquidation_threshold_bps": 0,
+        "ltv_bps": 0,
+        "total_collateral_base": 126525897974,
+        "total_debt_base": 20224381745
+      },
+      "health_factor_unit": 1000000000000000000,
+      "unproven_reasons": []
+    }
+  },
+  "owned_workers_after": []
+}

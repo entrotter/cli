@@ -1,0 +1,613 @@
+{
+  "cli": {
+    "sha256": "83c01e878c6cc63c6d25e9e0237db38508ad48d75cc09c9a47cc5f1f70ce6a91",
+    "modules_sha256": {
+      "entrotter_cli/observed_run.py": "35c34a523af62c4b0093501fb8298e40fc5a35fc7eb3b2f06d6197a588bdbc6e",
+      "entrotter_cli/export_budget.py": "2bebd29413cb86bf25acdc108d87b3f13a3ecd6ed447cd04a86a4e6a9e28614f",
+      "entrotter_cli/__init__.py": "11f3961a518c3a40429472d8582270a306114419f588008729d8759d8da83db6",
+      "entrotter_cli/position_run.py": "c0a6fccf18fe4478b62c010a535b64829fd21eb3791565973beab8b9231db0ed",
+      "entrotter_cli/main.py": "ce784c48ad2d6d4313f463e399fdc5f50a3b40f612fe801b05a6b2fe8d17f0b2",
+      "entrotter_cli/__main__.py": "130acafaef8483625c857235eb995dace14121a5ba10eec2c7464c9f045153a7"
+    },
+    "record_entries": 12,
+    "full_current_readme": true
+  },
+  "sdk": {
+    "sha256": "b13878facfda9106858deac67bae1976175fb0ff030483a02ba396f783e27797",
+    "modules_sha256": {
+      "entrotter_sdk/trace.py": "407f7a5640385823631e1bcebe4be769efc2d5d893996614431148719abdd1d2",
+      "entrotter_sdk/client.py": "cd5371d84584cf35fc5a4782e7aa8057c517b6d5410f1424734f8821d66cf543",
+      "entrotter_sdk/observed.py": "c2bd300449a850146c0fedec550393e0133bba03311e007106e268145fc9f2a5",
+      "entrotter_sdk/__init__.py": "c8dd65a77e2bee5d701d5df3ba927c106c473645a812c95d905ea59ef515c568",
+      "entrotter_sdk/position.py": "45586cd60694558ce45de767079245549e40690b9bb1363034d10302f4aa6df2"
+    },
+    "record_entries": 11,
+    "full_current_readme": true
+  },
+  "installed_module_sha256": {
+    "entrotter_cli": {
+      "observed_run.py": "35c34a523af62c4b0093501fb8298e40fc5a35fc7eb3b2f06d6197a588bdbc6e",
+      "export_budget.py": "2bebd29413cb86bf25acdc108d87b3f13a3ecd6ed447cd04a86a4e6a9e28614f",
+      "__init__.py": "11f3961a518c3a40429472d8582270a306114419f588008729d8759d8da83db6",
+      "position_run.py": "c0a6fccf18fe4478b62c010a535b64829fd21eb3791565973beab8b9231db0ed",
+      "main.py": "ce784c48ad2d6d4313f463e399fdc5f50a3b40f612fe801b05a6b2fe8d17f0b2",
+      "__main__.py": "130acafaef8483625c857235eb995dace14121a5ba10eec2c7464c9f045153a7"
+    },
+    "entrotter_sdk": {
+      "trace.py": "407f7a5640385823631e1bcebe4be769efc2d5d893996614431148719abdd1d2",
+      "client.py": "cd5371d84584cf35fc5a4782e7aa8057c517b6d5410f1424734f8821d66cf543",
+      "observed.py": "c2bd300449a850146c0fedec550393e0133bba03311e007106e268145fc9f2a5",
+      "__init__.py": "c8dd65a77e2bee5d701d5df3ba927c106c473645a812c95d905ea59ef515c568",
+      "position.py": "45586cd60694558ce45de767079245549e40690b9bb1363034d10302f4aa6df2"
+    }
+  },
+  "status": "pass",
+  "engine_available": false,
+  "isolated_no_index_no_deps_install": true,
+  "outputs": {
+    "doctor": {
+      "python": "3.13.0",
+      "anvil_installed": true,
+      "docker_installed": true,
+      "worker_image_configured": false,
+      "archive_rpc_configured": false,
+      "api_token_configured": false
+    },
+    "verify": "SHA-256 verified: e6a12db320dd37e8d37341fe202836d9442a7e428f89381223c9ab29faa479a6. Integrity is not proof of model correctness.\n",
+    "inspect": {
+      "mode": "fixture",
+      "scenario": "liquidity-shock",
+      "baseline": {
+        "initial_equity": "10000",
+        "final_equity": "5800",
+        "return_pct": "-42.00",
+        "max_drawdown_pct": "52.4271844660194174757281553398058252427184466019417475728155",
+        "fees": "0",
+        "trades": 0
+      },
+      "candidate": {
+        "initial_equity": "10000",
+        "final_equity": "8557.051600",
+        "return_pct": "-14.42948400",
+        "max_drawdown_pct": "16.9218291262135922330097087378640776699029126213592233009709",
+        "fees": "25.748400",
+        "trades": 1
+      },
+      "comparison": {
+        "final_equity_delta": "2757.051600"
+      },
+      "assumptions": [
+        "Synthetic exogenous price path; not a historical replay.",
+        "Both policies observe identical prices with no future lookahead.",
+        "Immediate fills with fixed fees/slippage; no gas, MEV, market impact or liquidity model.",
+        "No real money, chain transaction or LLM is used."
+      ]
+    },
+    "observed-verify": {
+      "artifact_id": "9084b6952866470fd20c3cbffab310feca5cacba5ba39cfaa9c6ffbb5caf80e9",
+      "profile": "aave-v3-ethereum-weth-price",
+      "integrity_verified": true,
+      "trace": {
+        "artifact_id": "c4050aeb2f7db54bf17354da3756356ae809b8be9fabccacdb26745ae209826f",
+        "baseline_receipts_verified": true,
+        "transaction_count": 32
+      },
+      "classification": {
+        "complete_price_views": true,
+        "baseline_receipts_verified": true,
+        "unproven_reasons": [],
+        "baseline_price": 256292441874,
+        "candidate_price": 257082415000,
+        "price_difference": 789973126
+      },
+      "scope": "Recorded wrapper and nested trace checks; not provider authentication. Read-only price dependence is not signed consumer strategy, profit or full-block/root/opcode proof. Missing or unproven differences are null."
+    },
+    "observed-inspect": {
+      "artifact_id": "9084b6952866470fd20c3cbffab310feca5cacba5ba39cfaa9c6ffbb5caf80e9",
+      "profile": "aave-v3-ethereum-weth-price",
+      "integrity_verified": true,
+      "trace": {
+        "artifact_id": "c4050aeb2f7db54bf17354da3756356ae809b8be9fabccacdb26745ae209826f",
+        "baseline_receipts_verified": true,
+        "transaction_count": 32
+      },
+      "classification": {
+        "complete_price_views": true,
+        "baseline_receipts_verified": true,
+        "unproven_reasons": [],
+        "baseline_price": 256292441874,
+        "candidate_price": 257082415000,
+        "price_difference": 789973126
+      },
+      "scope": "Recorded wrapper and nested trace checks; not provider authentication. Read-only price dependence is not signed consumer strategy, profit or full-block/root/opcode proof. Missing or unproven differences are null.",
+      "observations": [
+        {
+          "branch": "baseline",
+          "phase": "before",
+          "head": {
+            "number": 18999891,
+            "hash": "0xa818cfc5b0e63724a8c98bdd7df17ee0d0288954ea69ab0326bfdfa85caae3df",
+            "timestamp": 1705172123
+          },
+          "source": "0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419",
+          "price": 257082415000,
+          "base_currency": "0x0000000000000000000000000000000000000000",
+          "base_unit": 100000000,
+          "aggregator": "0xe62b71cf983019bff55bc83b48601ce8419650cc",
+          "latest_round_data": {
+            "round_id": 110680464442257320173,
+            "answer": 257082415000,
+            "started_at": 1705170659,
+            "updated_at": 1705170659,
+            "answered_in_round": 110680464442257320173
+          },
+          "oracle_code": {
+            "bytes": 3405,
+            "sha256": "dc8079e555204e0b2d7dc8382d6ebd71901f0b43e5940463e22b75b810a37728"
+          },
+          "source_code": {
+            "bytes": 9571,
+            "sha256": "ed698309290de3517c7201fcad9a9dbd4b8cde4a72c9add23129201f299c6f2b"
+          },
+          "errors": []
+        },
+        {
+          "branch": "baseline",
+          "phase": "after",
+          "head": {
+            "number": 18999892,
+            "hash": "0xe8e2d184d92dd5b88e0a67321e22c1158ab95ac0e246dc4b721496a81d8c7ef6",
+            "timestamp": 1705172135
+          },
+          "source": "0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419",
+          "price": 256292441874,
+          "base_currency": "0x0000000000000000000000000000000000000000",
+          "base_unit": 100000000,
+          "aggregator": "0xe62b71cf983019bff55bc83b48601ce8419650cc",
+          "latest_round_data": {
+            "round_id": 110680464442257320174,
+            "answer": 256292441874,
+            "started_at": 1705172135,
+            "updated_at": 1705172135,
+            "answered_in_round": 110680464442257320174
+          },
+          "oracle_code": {
+            "bytes": 3405,
+            "sha256": "dc8079e555204e0b2d7dc8382d6ebd71901f0b43e5940463e22b75b810a37728"
+          },
+          "source_code": {
+            "bytes": 9571,
+            "sha256": "ed698309290de3517c7201fcad9a9dbd4b8cde4a72c9add23129201f299c6f2b"
+          },
+          "errors": []
+        },
+        {
+          "branch": "candidate",
+          "phase": "before",
+          "head": {
+            "number": 18999891,
+            "hash": "0xa818cfc5b0e63724a8c98bdd7df17ee0d0288954ea69ab0326bfdfa85caae3df",
+            "timestamp": 1705172123
+          },
+          "source": "0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419",
+          "price": 257082415000,
+          "base_currency": "0x0000000000000000000000000000000000000000",
+          "base_unit": 100000000,
+          "aggregator": "0xe62b71cf983019bff55bc83b48601ce8419650cc",
+          "latest_round_data": {
+            "round_id": 110680464442257320173,
+            "answer": 257082415000,
+            "started_at": 1705170659,
+            "updated_at": 1705170659,
+            "answered_in_round": 110680464442257320173
+          },
+          "oracle_code": {
+            "bytes": 3405,
+            "sha256": "dc8079e555204e0b2d7dc8382d6ebd71901f0b43e5940463e22b75b810a37728"
+          },
+          "source_code": {
+            "bytes": 9571,
+            "sha256": "ed698309290de3517c7201fcad9a9dbd4b8cde4a72c9add23129201f299c6f2b"
+          },
+          "errors": []
+        },
+        {
+          "branch": "candidate",
+          "phase": "after",
+          "head": {
+            "number": 18999892,
+            "hash": "0x1732adeeead9a5b1c6a8b673b06a611774c1395efbcfb495a00f2cb3a58eab92",
+            "timestamp": 1705172135
+          },
+          "source": "0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419",
+          "price": 257082415000,
+          "base_currency": "0x0000000000000000000000000000000000000000",
+          "base_unit": 100000000,
+          "aggregator": "0xe62b71cf983019bff55bc83b48601ce8419650cc",
+          "latest_round_data": {
+            "round_id": 110680464442257320173,
+            "answer": 257082415000,
+            "started_at": 1705170659,
+            "updated_at": 1705170659,
+            "answered_in_round": 110680464442257320173
+          },
+          "oracle_code": {
+            "bytes": 3405,
+            "sha256": "dc8079e555204e0b2d7dc8382d6ebd71901f0b43e5940463e22b75b810a37728"
+          },
+          "source_code": {
+            "bytes": 9571,
+            "sha256": "ed698309290de3517c7201fcad9a9dbd4b8cde4a72c9add23129201f299c6f2b"
+          },
+          "errors": []
+        }
+      ]
+    },
+    "position-verify": {
+      "artifact_id": "5c67c4bcf4fc4de614153fc86c0c3814c188b4551212ce55ec9f533fa3e2ad4f",
+      "profile": "aave-v3-ethereum-account",
+      "account": "0x16aa9154557f1394089db90d3cbe212d9a7f33bb",
+      "plan": {
+        "account": "0x16aa9154557f1394089db90d3cbe212d9a7f33bb",
+        "position_version": "0.1.0",
+        "trace": {
+          "skip_indices": [
+            12
+          ],
+          "source": {
+            "block_hash": "0xafd6a8c681f5e3b6ae9cba963e4b8dd7e3c9bf76fe45e0c3e145ccb2918b2ba6",
+            "block_number": 18999892,
+            "chain_id": 1
+          },
+          "through_index": 12,
+          "trace_version": "0.1.0"
+        }
+      },
+      "integrity_verified": true,
+      "trace": {
+        "artifact_id": "52044d0f2292fad47d150e0f1cfc46d3346667705d3f43ef25641bc35f5a9737",
+        "baseline_receipts_verified": true,
+        "transaction_count": 13
+      },
+      "prices": {
+        "artifact_id": "678309d700aa919ac87501a60278053777c062f1b597922ca6da910b125086f5",
+        "classification": {
+          "complete_price_views": true,
+          "baseline_receipts_verified": true,
+          "unproven_reasons": [],
+          "baseline_price": 256292441874,
+          "candidate_price": 257082415000,
+          "price_difference": 789973126
+        }
+      },
+      "classification": {
+        "complete_account_views": true,
+        "unproven_reasons": [],
+        "baseline": {
+          "total_collateral_base": 41049031017510,
+          "total_debt_base": 16199140199548,
+          "available_borrows_base": 16845329769548,
+          "liquidation_threshold_bps": 8300,
+          "ltv_bps": 8050,
+          "health_factor_wad": 2103240994573506125
+        },
+        "candidate": {
+          "total_collateral_base": 41175556915484,
+          "total_debt_base": 16219364581293,
+          "available_borrows_base": 16926958735672,
+          "liquidation_threshold_bps": 8300,
+          "ltv_bps": 8050,
+          "health_factor_wad": 2107093164381383462
+        },
+        "differences": {
+          "total_collateral_base": 126525897974,
+          "total_debt_base": 20224381745,
+          "available_borrows_base": 81628966124,
+          "liquidation_threshold_bps": 0,
+          "ltv_bps": 0,
+          "health_factor_wad": 3852169807877337
+        },
+        "baseline_health_status": "at_or_above_one",
+        "candidate_health_status": "at_or_above_one",
+        "base_unit": 100000000,
+        "health_factor_unit": 1000000000000000000
+      },
+      "scope": "Owned-node read-only Aave account views. Differences compare the submitted transaction-prefix branches; they do not isolate price as the sole cause. No signed consumer action, loan/liquidation execution, profit, provider or proxy-implementation authentication, full-block/state-root proof. All-account base-currency values, not token balances; WAD health factor, basis-point thresholds. Native execution has no whole-process sandbox."
+    },
+    "position-inspect": {
+      "artifact_id": "5c67c4bcf4fc4de614153fc86c0c3814c188b4551212ce55ec9f533fa3e2ad4f",
+      "profile": "aave-v3-ethereum-account",
+      "account": "0x16aa9154557f1394089db90d3cbe212d9a7f33bb",
+      "plan": {
+        "account": "0x16aa9154557f1394089db90d3cbe212d9a7f33bb",
+        "position_version": "0.1.0",
+        "trace": {
+          "skip_indices": [
+            12
+          ],
+          "source": {
+            "block_hash": "0xafd6a8c681f5e3b6ae9cba963e4b8dd7e3c9bf76fe45e0c3e145ccb2918b2ba6",
+            "block_number": 18999892,
+            "chain_id": 1
+          },
+          "through_index": 12,
+          "trace_version": "0.1.0"
+        }
+      },
+      "integrity_verified": true,
+      "trace": {
+        "artifact_id": "52044d0f2292fad47d150e0f1cfc46d3346667705d3f43ef25641bc35f5a9737",
+        "baseline_receipts_verified": true,
+        "transaction_count": 13
+      },
+      "prices": {
+        "artifact_id": "678309d700aa919ac87501a60278053777c062f1b597922ca6da910b125086f5",
+        "classification": {
+          "complete_price_views": true,
+          "baseline_receipts_verified": true,
+          "unproven_reasons": [],
+          "baseline_price": 256292441874,
+          "candidate_price": 257082415000,
+          "price_difference": 789973126
+        }
+      },
+      "classification": {
+        "complete_account_views": true,
+        "unproven_reasons": [],
+        "baseline": {
+          "total_collateral_base": 41049031017510,
+          "total_debt_base": 16199140199548,
+          "available_borrows_base": 16845329769548,
+          "liquidation_threshold_bps": 8300,
+          "ltv_bps": 8050,
+          "health_factor_wad": 2103240994573506125
+        },
+        "candidate": {
+          "total_collateral_base": 41175556915484,
+          "total_debt_base": 16219364581293,
+          "available_borrows_base": 16926958735672,
+          "liquidation_threshold_bps": 8300,
+          "ltv_bps": 8050,
+          "health_factor_wad": 2107093164381383462
+        },
+        "differences": {
+          "total_collateral_base": 126525897974,
+          "total_debt_base": 20224381745,
+          "available_borrows_base": 81628966124,
+          "liquidation_threshold_bps": 0,
+          "ltv_bps": 0,
+          "health_factor_wad": 3852169807877337
+        },
+        "baseline_health_status": "at_or_above_one",
+        "candidate_health_status": "at_or_above_one",
+        "base_unit": 100000000,
+        "health_factor_unit": 1000000000000000000
+      },
+      "scope": "Owned-node read-only Aave account views. Differences compare the submitted transaction-prefix branches; they do not isolate price as the sole cause. No signed consumer action, loan/liquidation execution, profit, provider or proxy-implementation authentication, full-block/state-root proof. All-account base-currency values, not token balances; WAD health factor, basis-point thresholds. Native execution has no whole-process sandbox.",
+      "observations": [
+        {
+          "branch": "baseline",
+          "phase": "before",
+          "account": "0x16aa9154557f1394089db90d3cbe212d9a7f33bb",
+          "head": {
+            "number": 18999891,
+            "hash": "0xa818cfc5b0e63724a8c98bdd7df17ee0d0288954ea69ab0326bfdfa85caae3df",
+            "timestamp": 1705172123
+          },
+          "values": {
+            "total_collateral_base": 41175556721017,
+            "total_debt_base": 16219364296569,
+            "available_borrows_base": 16926958863850,
+            "liquidation_threshold_bps": 8300,
+            "ltv_bps": 8050,
+            "health_factor_wad": 2107093191418940922
+          },
+          "provider": "0x2f39d218133afab8f2b819b1066c7e434ad94e9e",
+          "oracle": "0x54586be62e3c3580375ae3723c145253060ca0c2",
+          "pool_code": {
+            "bytes": 2400,
+            "sha256": "bf8a408a1f5440c167d91fa2d972deb23bb4d809e8dd089009885ec88a826f88"
+          },
+          "errors": []
+        },
+        {
+          "branch": "baseline",
+          "phase": "after",
+          "account": "0x16aa9154557f1394089db90d3cbe212d9a7f33bb",
+          "head": {
+            "number": 18999892,
+            "hash": "0x055d61bf88c47402253a330eccca3629fb5b1f31146eb52c9aa6e9afd6479127",
+            "timestamp": 1705172135
+          },
+          "values": {
+            "total_collateral_base": 41049031017510,
+            "total_debt_base": 16199140199548,
+            "available_borrows_base": 16845329769548,
+            "liquidation_threshold_bps": 8300,
+            "ltv_bps": 8050,
+            "health_factor_wad": 2103240994573506125
+          },
+          "provider": "0x2f39d218133afab8f2b819b1066c7e434ad94e9e",
+          "oracle": "0x54586be62e3c3580375ae3723c145253060ca0c2",
+          "pool_code": {
+            "bytes": 2400,
+            "sha256": "bf8a408a1f5440c167d91fa2d972deb23bb4d809e8dd089009885ec88a826f88"
+          },
+          "errors": []
+        },
+        {
+          "branch": "candidate",
+          "phase": "before",
+          "account": "0x16aa9154557f1394089db90d3cbe212d9a7f33bb",
+          "head": {
+            "number": 18999891,
+            "hash": "0xa818cfc5b0e63724a8c98bdd7df17ee0d0288954ea69ab0326bfdfa85caae3df",
+            "timestamp": 1705172123
+          },
+          "values": {
+            "total_collateral_base": 41175556721017,
+            "total_debt_base": 16219364296569,
+            "available_borrows_base": 16926958863850,
+            "liquidation_threshold_bps": 8300,
+            "ltv_bps": 8050,
+            "health_factor_wad": 2107093191418940922
+          },
+          "provider": "0x2f39d218133afab8f2b819b1066c7e434ad94e9e",
+          "oracle": "0x54586be62e3c3580375ae3723c145253060ca0c2",
+          "pool_code": {
+            "bytes": 2400,
+            "sha256": "bf8a408a1f5440c167d91fa2d972deb23bb4d809e8dd089009885ec88a826f88"
+          },
+          "errors": []
+        },
+        {
+          "branch": "candidate",
+          "phase": "after",
+          "account": "0x16aa9154557f1394089db90d3cbe212d9a7f33bb",
+          "head": {
+            "number": 18999892,
+            "hash": "0x221fe9ca1ca8887e21677825b9dd68fba3b6338edfede025722ac8a17f442aba",
+            "timestamp": 1705172135
+          },
+          "values": {
+            "total_collateral_base": 41175556915484,
+            "total_debt_base": 16219364581293,
+            "available_borrows_base": 16926958735672,
+            "liquidation_threshold_bps": 8300,
+            "ltv_bps": 8050,
+            "health_factor_wad": 2107093164381383462
+          },
+          "provider": "0x2f39d218133afab8f2b819b1066c7e434ad94e9e",
+          "oracle": "0x54586be62e3c3580375ae3723c145253060ca0c2",
+          "pool_code": {
+            "bytes": 2400,
+            "sha256": "bf8a408a1f5440c167d91fa2d972deb23bb4d809e8dd089009885ec88a826f88"
+          },
+          "errors": []
+        }
+      ],
+      "price_observations": [
+        {
+          "branch": "baseline",
+          "phase": "before",
+          "head": {
+            "number": 18999891,
+            "hash": "0xa818cfc5b0e63724a8c98bdd7df17ee0d0288954ea69ab0326bfdfa85caae3df",
+            "timestamp": 1705172123
+          },
+          "source": "0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419",
+          "price": 257082415000,
+          "base_currency": "0x0000000000000000000000000000000000000000",
+          "base_unit": 100000000,
+          "aggregator": "0xe62b71cf983019bff55bc83b48601ce8419650cc",
+          "latest_round_data": {
+            "round_id": 110680464442257320173,
+            "answer": 257082415000,
+            "started_at": 1705170659,
+            "updated_at": 1705170659,
+            "answered_in_round": 110680464442257320173
+          },
+          "oracle_code": {
+            "bytes": 3405,
+            "sha256": "dc8079e555204e0b2d7dc8382d6ebd71901f0b43e5940463e22b75b810a37728"
+          },
+          "source_code": {
+            "bytes": 9571,
+            "sha256": "ed698309290de3517c7201fcad9a9dbd4b8cde4a72c9add23129201f299c6f2b"
+          },
+          "errors": []
+        },
+        {
+          "branch": "baseline",
+          "phase": "after",
+          "head": {
+            "number": 18999892,
+            "hash": "0x055d61bf88c47402253a330eccca3629fb5b1f31146eb52c9aa6e9afd6479127",
+            "timestamp": 1705172135
+          },
+          "source": "0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419",
+          "price": 256292441874,
+          "base_currency": "0x0000000000000000000000000000000000000000",
+          "base_unit": 100000000,
+          "aggregator": "0xe62b71cf983019bff55bc83b48601ce8419650cc",
+          "latest_round_data": {
+            "round_id": 110680464442257320174,
+            "answer": 256292441874,
+            "started_at": 1705172135,
+            "updated_at": 1705172135,
+            "answered_in_round": 110680464442257320174
+          },
+          "oracle_code": {
+            "bytes": 3405,
+            "sha256": "dc8079e555204e0b2d7dc8382d6ebd71901f0b43e5940463e22b75b810a37728"
+          },
+          "source_code": {
+            "bytes": 9571,
+            "sha256": "ed698309290de3517c7201fcad9a9dbd4b8cde4a72c9add23129201f299c6f2b"
+          },
+          "errors": []
+        },
+        {
+          "branch": "candidate",
+          "phase": "before",
+          "head": {
+            "number": 18999891,
+            "hash": "0xa818cfc5b0e63724a8c98bdd7df17ee0d0288954ea69ab0326bfdfa85caae3df",
+            "timestamp": 1705172123
+          },
+          "source": "0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419",
+          "price": 257082415000,
+          "base_currency": "0x0000000000000000000000000000000000000000",
+          "base_unit": 100000000,
+          "aggregator": "0xe62b71cf983019bff55bc83b48601ce8419650cc",
+          "latest_round_data": {
+            "round_id": 110680464442257320173,
+            "answer": 257082415000,
+            "started_at": 1705170659,
+            "updated_at": 1705170659,
+            "answered_in_round": 110680464442257320173
+          },
+          "oracle_code": {
+            "bytes": 3405,
+            "sha256": "dc8079e555204e0b2d7dc8382d6ebd71901f0b43e5940463e22b75b810a37728"
+          },
+          "source_code": {
+            "bytes": 9571,
+            "sha256": "ed698309290de3517c7201fcad9a9dbd4b8cde4a72c9add23129201f299c6f2b"
+          },
+          "errors": []
+        },
+        {
+          "branch": "candidate",
+          "phase": "after",
+          "head": {
+            "number": 18999892,
+            "hash": "0x221fe9ca1ca8887e21677825b9dd68fba3b6338edfede025722ac8a17f442aba",
+            "timestamp": 1705172135
+          },
+          "source": "0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419",
+          "price": 257082415000,
+          "base_currency": "0x0000000000000000000000000000000000000000",
+          "base_unit": 100000000,
+          "aggregator": "0xe62b71cf983019bff55bc83b48601ce8419650cc",
+          "latest_round_data": {
+            "round_id": 110680464442257320173,
+            "answer": 257082415000,
+            "started_at": 1705170659,
+            "updated_at": 1705170659,
+            "answered_in_round": 110680464442257320173
+          },
+          "oracle_code": {
+            "bytes": 3405,
+            "sha256": "dc8079e555204e0b2d7dc8382d6ebd71901f0b43e5940463e22b75b810a37728"
+          },
+          "source_code": {
+            "bytes": 9571,
+            "sha256": "ed698309290de3517c7201fcad9a9dbd4b8cde4a72c9add23129201f299c6f2b"
+          },
+          "errors": []
+        }
+      ]
+    }
+  }
+}

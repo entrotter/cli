@@ -1,0 +1,69 @@
+{
+  "base": "22b514cbba2ecd0c41ae99c330f8396c97acebf2",
+  "SDK": "eb9921f30c1f0f3750140f66023e3b10d255cb20",
+  "source_sha256": {
+    "src/entrotter_cli/export_budget.py": "2bebd29413cb86bf25acdc108d87b3f13a3ecd6ed447cd04a86a4e6a9e28614f",
+    "src/entrotter_cli/__init__.py": "11f3961a518c3a40429472d8582270a306114419f588008729d8759d8da83db6",
+    "src/entrotter_cli/main.py": "bbd8c3db666fc5cf3b4d4f2bf7f8dd99a72b0f0efd60066fbc711364a7de8214",
+    "src/entrotter_cli/__main__.py": "130acafaef8483625c857235eb995dace14121a5ba10eec2c7464c9f045153a7",
+    "scripts/check_dependency_manifest.py": "fd9eaa329e7a27ee8b21ca3b7ecdb2ca2afb022bea1ebcecff2d5faaac52fcaf",
+    "scripts/check_security.py": "58de6896402c89d235a22a9e9bb2895ece68f20e7b9dd91966ea15fefad24c07",
+    ".github/workflows/ci.yml": "28ecc381bbccbfe8b4c06cc1996757df6db351d1cdd9688757dd86131583d8d0",
+    ".github/workflows/quality.yml": "52231a6d8473928dc675f59702bc2629af5744368e7829db87e842bc2bab0cae",
+    "quality-inputs.json": "e75a37380ae0b1247f4b05a79dce1cf98a823acb59fc0668cf675043f71c18f5",
+    "README.md": "93819b8eac16b33309be64023d37bc2bcc8f4de723612f5b2d12b8912cf29705",
+    "SECURITY.md": "27767cc4977e83c56a7dcfdbb7f8c5df8c4a94a785c12ac2a48ad287e06a8d83",
+    "requirements-quality.txt": "845de7f7f24826a43ff5e9eebafa79c6b3ef0aa10e46bfc04e39b77f64cea722",
+    "tests/test_observed_cli.py": "dc5fa33006a2da8dd898ae1c00ae0f6d3d8717136bba9ea4827caf77730e3404",
+    "tests/data/observed-price32.json": "7010848300c353310fb78dab7f377daea4226633e49af3c1a384bcb3a579ba9d",
+    "tests/data/observed-controls.json": "b68865916ac365e2ca1093c16439b4baaa628e14b3b2e209f36596f2c09bba67"
+  },
+  "copies": {
+    "unit.log": {
+      "original": ".quality/observed-cli/unit-final.log",
+      "sha256": "1da491b1d7650a17702d7cc4268b213d00aaf79ed09eff851b8331d744cd5aa8",
+      "copy": "exact bytes"
+    },
+    "types.log": {
+      "original": ".quality/observed-cli/types.log",
+      "sha256": "ab35ee42183d4d6d3ba483825ab037d18a5a15622d03be01d82220b1564851ff",
+      "copy": "exact bytes"
+    },
+    "bandit.json": {
+      "original": ".quality/bandit.json",
+      "sha256": "e5267480f9546513be89109ec8a82292268511a6da163032f6c28abda32e3ab4",
+      "copy": "exact bytes"
+    },
+    "security-scope.json": {
+      "original": ".quality/security-scope.json",
+      "sha256": "b1270694f20eb3bc8dd20c6cd5657d50219ad510f6de80129d3fe61d543055bb",
+      "copy": "exact bytes"
+    },
+    "dependency-scope.json": {
+      "original": ".quality/dependency-scope.json",
+      "sha256": "b509dd1e9b28d21cc562709db8d6a34f5cff19331c32616ae5c538f2dbd7ca86",
+      "copy": "exact bytes"
+    },
+    "wheel-isolation.json": {
+      "original": ".quality/observed-cli/wheel-isolation.json",
+      "sha256": "6cf5f920198a63e4c183efabcf31cea79df1673ffc28d546e0a446076c3f042d",
+      "copy": "exact bytes"
+    },
+    "isolated-imports.log": {
+      "original": ".quality/observed-cli/isolated-imports.log",
+      "sha256": "7af08d3fed10e2dda739d79022d83ff14eeffe9e1a8d6155f84d57cf8bb96199",
+      "copy": "exact bytes"
+    },
+    "observed-inspect.json": {
+      "original": ".quality/observed-cli/observed-inspect-wheel.log",
+      "sha256": "b4a6a14d3fb4acaae8eaf2fba783641e9094d85a2dbba5b293c3d912e381c532",
+      "copy": "exact bytes"
+    },
+    "observed-verify.json": {
+      "original": ".quality/observed-cli/observed-verify-wheel.log",
+      "sha256": "7be2cf3ff1da0820eea9d8e2f544df7f6bb54d398da23ac57939bcbbc1d46291",
+      "copy": "exact bytes"
+    }
+  },
+  "limits": "Actual local CLI/unit/static/isolated wheel checks; no new EVM/model/browser/CI or registry publication. Required CI and independent review separate."
+}

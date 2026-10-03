@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "CLI_wheel_sha256": "6bfd7d993ca2ad44d0f5822e711c06b1b4bd3c99fd28c6bec82142c041eea2ad",
+  "SDK_reused_original_CI_wheel_sha256": "3a5e11f225ac0b4247d18e705122200de7c171d47c824e9657844b7a7a06a5d3",
+  "SDK_current_modules": {
+    "entrotter_sdk/__init__.py": "8accc01cc6b8b684fc70f244c595d61dbc8bc6b064e83f85f3f534d51ce36e71",
+    "entrotter_sdk/client.py": "cd5371d84584cf35fc5a4782e7aa8057c517b6d5410f1424734f8821d66cf543",
+    "entrotter_sdk/observed.py": "c2bd300449a850146c0fedec550393e0133bba03311e007106e268145fc9f2a5",
+    "entrotter_sdk/trace.py": "407f7a5640385823631e1bcebe4be769efc2d5d893996614431148719abdd1d2"
+  },
+  "SDK_source": "eb9921f30c1f0f3750140f66023e3b10d255cb20",
+  "isolation": "Fresh venv; no-index/no-deps; -I; installed CLI/SDK; no Engine",
+  "commands": {
+    "doctor": {
+      "returncode": 0,
+      "stdout_sha256": "dfbab9e577706a30b98ddac335a20a5b04c7ba8244c6be7bbbe47bfe1e363bb0"
+    },
+    "verify": {
+      "returncode": 0,
+      "stdout_sha256": "e15c49230627ad9cc12d2ac3c7e59f41c794ae7a58a791749d78a31b44e03108"
+    },
+    "inspect": {
+      "returncode": 0,
+      "stdout_sha256": "7c3a51f04c1fc3b4bcd05277e68c3b074b86c29bd7e2c9d825ce27dd43eccc11"
+    },
+    "observed-verify": {
+      "returncode": 0,
+      "stdout_sha256": "7be2cf3ff1da0820eea9d8e2f544df7f6bb54d398da23ac57939bcbbc1d46291"
+    },
+    "observed-inspect": {
+      "returncode": 0,
+      "stdout_sha256": "b4a6a14d3fb4acaae8eaf2fba783641e9094d85a2dbba5b293c3d912e381c532"
+    }
+  },
+  "new_trace_observe_missing_engine": {
+    "returncode": 1,
+    "success_stdout": false,
+    "incumbent_preserved": true
+  },
+  "CLI_wheel_runtime_modules_exact_current_source": {
+    "entrotter_cli/__init__.py": "11f3961a518c3a40429472d8582270a306114419f588008729d8759d8da83db6",
+    "entrotter_cli/__main__.py": "130acafaef8483625c857235eb995dace14121a5ba10eec2c7464c9f045153a7",
+    "entrotter_cli/export_budget.py": "2bebd29413cb86bf25acdc108d87b3f13a3ecd6ed447cd04a86a4e6a9e28614f",
+    "entrotter_cli/main.py": "6f0a68f7179ee1e1571d0bba9bf6e45dc94a9cc4c5ba9e4dd6bf9b4d2f4d7678",
+    "entrotter_cli/observed_run.py": "35c34a523af62c4b0093501fb8298e40fc5a35fc7eb3b2f06d6197a588bdbc6e"
+  },
+  "README_exact": true,
+  "all_RECORD_members_verified": 11,
+  "scope": "Installed-wheel inspection and missing optional Engine refusal; actual Docker execution tested separately from source."
+}

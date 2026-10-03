@@ -1,0 +1,58 @@
+{
+  "status": "passed",
+  "CLI_wheel_sha256": "1115a1c3ca358b62097fb9b8a6d06e5b072d2a4e3de9d0b1d8d0d6c9894bd8e3",
+  "SDK_reused_original_wheel_sha256": "f111762831406e0cd198dd7c36107419396fe94b30ccd0ae5866b3d2a99ef555",
+  "SDK_source": "eb9921f30c1f0f3750140f66023e3b10d255cb20",
+  "isolation": "Fresh venv; no-index/no-deps; -I commands; no engine available; modules installed under venv prefix",
+  "commands": {
+    "doctor": {
+      "returncode": 0,
+      "stdout_sha256": "dfbab9e577706a30b98ddac335a20a5b04c7ba8244c6be7bbbe47bfe1e363bb0"
+    },
+    "verify": {
+      "returncode": 0,
+      "stdout_sha256": "e15c49230627ad9cc12d2ac3c7e59f41c794ae7a58a791749d78a31b44e03108"
+    },
+    "inspect": {
+      "returncode": 0,
+      "stdout_sha256": "7c3a51f04c1fc3b4bcd05277e68c3b074b86c29bd7e2c9d825ce27dd43eccc11"
+    },
+    "observed-verify": {
+      "returncode": 0,
+      "stdout_sha256": "7be2cf3ff1da0820eea9d8e2f544df7f6bb54d398da23ac57939bcbbc1d46291"
+    },
+    "observed-inspect": {
+      "returncode": 0,
+      "stdout_sha256": "b4a6a14d3fb4acaae8eaf2fba783641e9094d85a2dbba5b293c3d912e381c532"
+    }
+  },
+  "CLI_wheel_runtime_modules_exact_current_source": {
+    "entrotter_cli/__init__.py": "11f3961a518c3a40429472d8582270a306114419f588008729d8759d8da83db6",
+    "entrotter_cli/__main__.py": "130acafaef8483625c857235eb995dace14121a5ba10eec2c7464c9f045153a7",
+    "entrotter_cli/export_budget.py": "2bebd29413cb86bf25acdc108d87b3f13a3ecd6ed447cd04a86a4e6a9e28614f",
+    "entrotter_cli/main.py": "bbd8c3db666fc5cf3b4d4f2bf7f8dd99a72b0f0efd60066fbc711364a7de8214"
+  },
+  "actual_observation_classification": {
+    "complete_price_views": true,
+    "baseline_receipts_verified": true,
+    "unproven_reasons": [],
+    "baseline_price": 256292441874,
+    "candidate_price": 257082415000,
+    "price_difference": 789973126
+  },
+  "trace": {
+    "artifact_id": "c4050aeb2f7db54bf17354da3756356ae809b8be9fabccacdb26745ae209826f",
+    "baseline_receipts_verified": true,
+    "transaction_count": 32
+  },
+  "scope": "Recorded wrapper read only; no new chain/model/browser or performance measurement",
+  "README_only_metadata_refresh": {
+    "prior_wheel_sha256": "1838cc81d72009e9dbf64975e9dd090644a5559919b062cef09b05c7931ff9e0",
+    "only_changed_members": [
+      "entrotter_cli-0.1.0.dist-info/METADATA",
+      "entrotter_cli-0.1.0.dist-info/RECORD"
+    ],
+    "all4_runtime_modules_unchanged": true,
+    "commands": "Original five isolated outputs retained; new wheel installed into the same initially fresh isolated venv; both observed commands rechecked byte-for-byte below."
+  }
+}

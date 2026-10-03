@@ -1,0 +1,45 @@
+test_agent_run_uses_bounded_primitive_and_explicit_budget (test_agent_cli.AgentCLITests.test_agent_run_uses_bounded_primitive_and_explicit_budget) ... ok
+test_inspection_displays_choices_and_provenance_without_engine (test_agent_cli.AgentCLITests.test_inspection_displays_choices_and_provenance_without_engine) ... ok
+test_invalid_recording_parameters_fail_before_engine_call (test_agent_cli.AgentCLITests.test_invalid_recording_parameters_fail_before_engine_call) ... ok
+test_legacy_provider_signature_is_rejected_without_fallback (test_agent_cli.AgentCLITests.test_legacy_provider_signature_is_rejected_without_fallback) ... ok
+test_missing_engine_is_explicit_and_preserves_destination (test_agent_cli.AgentCLITests.test_missing_engine_is_explicit_and_preserves_destination) ... ok
+test_native_or_api_override_is_unavailable_for_agent_commands (test_agent_cli.AgentCLITests.test_native_or_api_override_is_unavailable_for_agent_commands) ... ok
+test_replay_exports_complete_unchanged_record (test_agent_cli.AgentCLITests.test_replay_exports_complete_unchanged_record) ... ok
+test_replay_fifo_cannot_wait_for_a_writer (test_agent_cli.AgentCLITests.test_replay_fifo_cannot_wait_for_a_writer) ... ok
+test_replay_refuses_divergence_before_replacing_destination (test_agent_cli.AgentCLITests.test_replay_refuses_divergence_before_replacing_destination) ... ok
+test_tampered_hash_cannot_launch_or_export (test_agent_cli.AgentCLITests.test_tampered_hash_cannot_launch_or_export) ... ok
+test_doctor (test_cli.CLITests.test_doctor) ... ok
+test_doctor_no_secrets (test_cli.CLITests.test_doctor_no_secrets) ... ok
+test_error_no_traceback (test_cli.CLITests.test_error_no_traceback) ... ok
+test_fifo_input_cannot_wait_for_a_writer (test_cli.CLITests.test_fifo_input_cannot_wait_for_a_writer) ... ok
+test_hashed_report_with_malformed_mode_has_no_traceback (test_cli.CLITests.test_hashed_report_with_malformed_mode_has_no_traceback) ... ok
+test_local_option (test_cli.CLITests.test_local_option) ... ok
+test_native_cannot_override_an_api_server (test_cli.CLITests.test_native_cannot_override_an_api_server) ... ok
+test_read_json (test_cli.CLITests.test_read_json) ... ok
+test_size_limit (test_cli.CLITests.test_size_limit) ... ok
+test_failed_replace_preserves_destination_and_removes_temp (test_export.ExportTests.test_failed_replace_preserves_destination_and_removes_temp) ... ok
+test_oversized_export_preserves_previous_destination (test_export.ExportTests.test_oversized_export_preserves_previous_destination) ... ok
+test_successful_export_is_complete_and_verified (test_export.ExportTests.test_successful_export_is_complete_and_verified) ... ok
+test_aggregate_bytes_across_directories_and_replacement_peak (test_export_budget.ExportBudgetTests.test_aggregate_bytes_across_directories_and_replacement_peak) ... ok
+test_changed_tracked_files_and_hard_links_cannot_hide_usage (test_export_budget.ExportBudgetTests.test_changed_tracked_files_and_hard_links_cannot_hide_usage) ... ok
+test_default_count_rejects_129th_completed_export (test_export_budget.ExportBudgetTests.test_default_count_rejects_129th_completed_export) ... ok
+test_destination_symlink_is_replaced_without_modifying_referent (test_export_budget.ExportBudgetTests.test_destination_symlink_is_replaced_without_modifying_referent) ... ok
+test_failed_publish_preserves_previous_and_releases_reservation (test_export_budget.ExportBudgetTests.test_failed_publish_preserves_previous_and_releases_reservation) ... ok
+test_file_count_and_manual_deletion_release_capacity (test_export_budget.ExportBudgetTests.test_file_count_and_manual_deletion_release_capacity) ... ok
+test_inspection_lists_paths_and_over_budget_modified_content (test_export_budget.ExportBudgetTests.test_inspection_lists_paths_and_over_budget_modified_content) ... ok
+test_invalid_or_oversized_bookkeeping_fails_closed (test_export_budget.ExportBudgetTests.test_invalid_or_oversized_bookkeeping_fails_closed) ... ok
+test_parent_alias_does_not_double_charge_same_export (test_export_budget.ExportBudgetTests.test_parent_alias_does_not_double_charge_same_export) ... ok
+test_private_state_and_reserved_files_are_required (test_export_budget.ExportBudgetTests.test_private_state_and_reserved_files_are_required) ... ok
+test_production_byte_limit_rejects_seventeenth_eight_mib_export (test_export_budget.ExportBudgetTests.test_production_byte_limit_rejects_seventeenth_eight_mib_export) ... ok
+test_reservation_failure_writes_no_output_bytes (test_export_budget.ExportBudgetTests.test_reservation_failure_writes_no_output_bytes) ... ok
+test_sigkill_after_rename_recovers_exact_published_output (test_export_budget.ExportBudgetTests.test_sigkill_after_rename_recovers_exact_published_output) ... ok
+test_sigkill_before_rename_keeps_temporary_bytes_charged (test_export_budget.ExportBudgetTests.test_sigkill_before_rename_keeps_temporary_bytes_charged) ... ok
+test_two_real_processes_cannot_overrun_shared_budget (test_export_budget.ExportBudgetTests.test_two_real_processes_cannot_overrun_shared_budget) ... ok
+test_dependency_declarations_cannot_escape_audited_lock (test_quality_gates.QualityPolicyTests.test_dependency_declarations_cannot_escape_audited_lock) ... ok
+test_local_sdk_cannot_hide_version_or_dependency_changes (test_quality_gates.QualityPolicyTests.test_local_sdk_cannot_hide_version_or_dependency_changes) ... ok
+test_no_empty_partial_skipped_or_unreviewed_security_success (test_quality_gates.QualityPolicyTests.test_no_empty_partial_skipped_or_unreviewed_security_success) ... ok
+
+----------------------------------------------------------------------
+Ran 40 tests in 0.776s
+
+OK

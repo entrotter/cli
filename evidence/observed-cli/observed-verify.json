@@ -1,0 +1,19 @@
+{
+  "artifact_id": "9084b6952866470fd20c3cbffab310feca5cacba5ba39cfaa9c6ffbb5caf80e9",
+  "profile": "aave-v3-ethereum-weth-price",
+  "integrity_verified": true,
+  "trace": {
+    "artifact_id": "c4050aeb2f7db54bf17354da3756356ae809b8be9fabccacdb26745ae209826f",
+    "baseline_receipts_verified": true,
+    "transaction_count": 32
+  },
+  "classification": {
+    "complete_price_views": true,
+    "baseline_receipts_verified": true,
+    "unproven_reasons": [],
+    "baseline_price": 256292441874,
+    "candidate_price": 257082415000,
+    "price_difference": 789973126
+  },
+  "scope": "Recorded wrapper and nested trace checks; not provider authentication. Read-only price dependence is not signed consumer strategy, profit or full-block/root/opcode proof. Missing or unproven differences are null."
+}

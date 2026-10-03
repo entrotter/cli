@@ -1,0 +1,6 @@
+test_unverified_baseline_fails_but_exact_child_record_is_retained (test_position_evidence.PositionEvidenceTests.test_unverified_baseline_fails_but_exact_child_record_is_retained) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.019s
+
+OK

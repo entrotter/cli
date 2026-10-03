@@ -1,0 +1,17 @@
+{
+  "returncode": 0,
+  "stdout": {
+    "artifact_id": "65c67c5b4459e2de0e63ba63c9f6cd2f5d1d94da171d0609d221e1c397d6454c",
+    "trace_artifact_id": "be12be90b53a248e1fd8f28e1411452cfdf25a3d4678026169a6043158113a9c",
+    "output": "<TEMP_PATH>",
+    "classification": {
+      "baseline_price": 256292441874,
+      "baseline_receipts_verified": true,
+      "candidate_price": 256292441874,
+      "complete_price_views": true,
+      "price_difference": 0,
+      "unproven_reasons": []
+    }
+  },
+  "owned_workers_after": []
+}

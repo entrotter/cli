@@ -1,0 +1,44 @@
+{
+  "status": "local_verified_current_head_CI_and_GitHub_approval_pending",
+  "checked_at": "2026-10-01T11:25:02.913154+00:00",
+  "base_cli_commit": "87cfe4078dfaaaa3eebcbff65bcedc8d60013cc8",
+  "engine_commit": "c1671938edde03c59deef64dbb81d7c41a33406b",
+  "sdk_commit": "b0c2ba3bba411e548af44101ae06e879bd7b5dc0",
+  "before": "12 agent-unit cases, three failures: spoofed inspection accepted and two malformed replay references reached optional engine",
+  "after": {
+    "unit_tests": 42,
+    "seconds": 0.907,
+    "passed": true,
+    "lint": "passed",
+    "format": "7 files unchanged",
+    "mypy": "all6 production sources pass",
+    "security": "all6 sources scanned with no findings/skips"
+  },
+  "independent_review": "Three focused checks passed; no remaining actionable finding in fix. Not an independent GitHub approval.",
+  "new_model_calls": 0,
+  "new_archive_RPC_calls": 0,
+  "actual_Docker": "not repeated locally for parse-only fix; original87cfe40 evidence retained; current-head mandatory Linux Docker job will verify valid risk/model equality",
+  "coordinator": "PR55/2e12018 still selects original87cfe40; no new composition/installation/deployment claim",
+  "samples_unchanged": {
+    "tests/data/agent-recorded-local.json": "802683e5b42c066a08016c87f51679986715add21f661d7d6c4cc7e563e320e6",
+    "tests/data/agent-risk-local.json": "30975546117ecd7b70a496e398d303cd9b9575a1228429e446016cc247e2822b"
+  },
+  "sources": {
+    "src/entrotter_cli/export_budget.py": "2bebd29413cb86bf25acdc108d87b3f13a3ecd6ed447cd04a86a4e6a9e28614f",
+    "src/entrotter_cli/__init__.py": "11f3961a518c3a40429472d8582270a306114419f588008729d8759d8da83db6",
+    "src/entrotter_cli/main.py": "51d9fba8eb62febb3386bc57c1b512af4ae97a7d2ac482cfcca3ad748755ae05",
+    "src/entrotter_cli/__main__.py": "130acafaef8483625c857235eb995dace14121a5ba10eec2c7464c9f045153a7",
+    "scripts/check_dependency_manifest.py": "fd9eaa329e7a27ee8b21ca3b7ecdb2ca2afb022bea1ebcecff2d5faaac52fcaf",
+    "scripts/check_security.py": "58de6896402c89d235a22a9e9bb2895ece68f20e7b9dd91966ea15fefad24c07"
+  },
+  "artifact_sha256": {
+    "failing-before.log": "ea552df199ce9e469adfe2122b2cc9510c357138d1180c518c12e76e46c8c8b0",
+    "unit.log": "48acc6d8cea440cad62a55220cccd98369268ceae847493ad52e8aaec7bf10b4",
+    "review.json": "74c2ed7fe10d74a5767997edd3074a465c19e8152a40084372b5c027d25e0abc"
+  },
+  "limitations": [
+    "Extra-field validation aligns inspection with typed response shape; report digests still do not establish truthful producer assumptions.",
+    "Canonical historical transaction-trace replay remains unsupported; frozen model/evaluation/holdout inputs unchanged.",
+    "Actual GitHub independent approval and protected-main integration remain pending."
+  ]
+}

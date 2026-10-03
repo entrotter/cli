@@ -1,0 +1,9 @@
+test_changed_state_refuses_then_recovers_without_overwriting (test_agent_cli.ActualAgentCLITests.test_changed_state_refuses_then_recovers_without_overwriting) ... ok
+test_missing_image_refuses_without_native_fallback_or_overwrite (test_agent_cli.ActualAgentCLITests.test_missing_image_refuses_without_native_fallback_or_overwrite) ... ok
+test_original_model_replay_and_inspection_need_no_provider (test_agent_cli.ActualAgentCLITests.test_original_model_replay_and_inspection_need_no_provider) ... ok
+test_risk_execution_and_replay_match_original_complete_report (test_agent_cli.ActualAgentCLITests.test_risk_execution_and_replay_match_original_complete_report) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 3.386s
+
+OK

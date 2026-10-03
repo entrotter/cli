@@ -1,0 +1,57 @@
+{
+  "status": "verified_local; current_head_CI_independent_review_and_protected_integration_pending",
+  "checked_at": "2026-10-01T10:36:07.849208+00:00",
+  "base_cli_commit": "a63a39000e03d151e80b5a9c47dd4df449281b93",
+  "engine_commit": "c1671938edde03c59deef64dbb81d7c41a33406b",
+  "sdk_commit": "b0c2ba3bba411e548af44101ae06e879bd7b5dc0",
+  "local_unit_tests": 40,
+  "local_unit_seconds": 0.776,
+  "actual_Docker_tests": 4,
+  "actual_Docker_seconds": 3.386,
+  "new_model_calls": 0,
+  "new_archive_rpc_calls": 0,
+  "model_artifact_id": "1d1de88d01cbe23c494f6a6f7ee7127d63629baac071def58c067506ddf5893b",
+  "risk_artifact_id": "bae842845d882b3007fbb497c4d6abbbc86bb935b7e0cb1d504cecf6dad57e52",
+  "full_report_equality": true,
+  "changed_initial_state": "Refused; incumbent preserved; normal recorded replay then succeeds",
+  "missing_image": "Refused without native fallback or destination replacement",
+  "inspection": "No engine/model account required; original requested alias/nondeterminism/unknown cost retained",
+  "source_sha256": {
+    "src/entrotter_cli/main.py": "e5ccd42d77586fc30904d0f336b13e816a454a5e7326eeb306a1f637b56e1224",
+    "typings/entrotter_engine/runner.pyi": "915ef5a375f410e89fc11215c0554adbb6b4d50b5cf315dc6219fce08ec0297a",
+    "tests/test_agent_cli.py": "c42e04c1635ff5a8fe491ee007ec4562c3526abf94cd2e8368fd1427dc972ff7",
+    "tests_agent/test_agent_cli.py": "814e73f4109f18b528eda2e5cebb7161f416b773d4e1db6b3f15e105125451bb",
+    ".github/workflows/ci.yml": "53e9fa66d149432de81fb1ffc4acf3a7ed597a93c04ef85807e796916de4944a",
+    "quality-inputs.json": "d6b287c91830399eb5b41c169346d44f01b946feb2cd85144ad5d5766d857357"
+  },
+  "sample_sha256": {
+    "tests/data/agent-recorded-local.json": "802683e5b42c066a08016c87f51679986715add21f661d7d6c4cc7e563e320e6",
+    "tests/data/agent-risk-local.json": "30975546117ecd7b70a496e398d303cd9b9575a1228429e446016cc247e2822b"
+  },
+  "security": {
+    "production_sources": 6,
+    "findings": 0,
+    "skipped_rules": 0
+  },
+  "scope": "Actual commands with an already running dedicated ARM64 Linux Docker daemon and prebuilt source-verified worker. Not fresh clone/build/setup timing or new model quality evidence.",
+  "cleanup": {
+    "owned_workers": 0,
+    "dedicated_VM": "Stopped; fresh Colima readback",
+    "default_VM": "Running; fresh Colima readback, untouched"
+  },
+  "limitations": [
+    "Independent main approval and final cross-repository promotion/publication are pending",
+    "Python-only engine API is exposed by local CLI; no agent HTTP endpoint or external provider/code execution",
+    "Data-only action replay, not later-block historical trace replay or new untouched holdout evaluation",
+    "Host process overhead, general fork bridge, other clients/daemons and VM/image storage retain existing documented limits",
+    "Original model served snapshot and monetary cost unavailable; no claim original generation was deterministic/free"
+  ],
+  "artifact_sha256": {
+    "failing-before.log": "59bdce64bceb12f7fb2aaaeedbed61e201c6ffb908b62727fa2eddd4243eb0d9",
+    "bandit.json": "6051833f194049ee9099464281b16bbdb4123ab3e7ed537841de1f3c39de2405",
+    "unit.log": "f7e99a8cc65a062c08b454cd4940bd6af508a0b2ee9c34810a8fcb77054897bd",
+    "security-scope.json": "c639dd3e3ea2d84322515a6b4d54778b4c03220ba09c29aa4c4d2617b37238f4",
+    "actual-tests-final.log": "0381b7aec68435d834fd9e010046101f4e00552c3284ab6db6093986aa190893"
+  },
+  "local_doc_links": 9
+}

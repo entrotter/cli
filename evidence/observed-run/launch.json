@@ -1,0 +1,44 @@
+{
+  "worker_image": "sha256:840d03df90859a63d5a3e1f8403a68c27681577d41d6c9f82669c0c730febc4e",
+  "plan_sha256": "ccde28ce34f51c55e8c68789f2deecdf394417e05e81a738c52e140950b83031",
+  "Python": "3.13.0",
+  "source_modules_sha256": {
+    "entrotter_cli": {
+      "__init__.py": "11f3961a518c3a40429472d8582270a306114419f588008729d8759d8da83db6",
+      "__main__.py": "130acafaef8483625c857235eb995dace14121a5ba10eec2c7464c9f045153a7",
+      "export_budget.py": "2bebd29413cb86bf25acdc108d87b3f13a3ecd6ed447cd04a86a4e6a9e28614f",
+      "main.py": "6f0a68f7179ee1e1571d0bba9bf6e45dc94a9cc4c5ba9e4dd6bf9b4d2f4d7678",
+      "observed_run.py": "35c34a523af62c4b0093501fb8298e40fc5a35fc7eb3b2f06d6197a588bdbc6e"
+    },
+    "entrotter_sdk": {
+      "__init__.py": "8accc01cc6b8b684fc70f244c595d61dbc8bc6b064e83f85f3f534d51ce36e71",
+      "client.py": "cd5371d84584cf35fc5a4782e7aa8057c517b6d5410f1424734f8821d66cf543",
+      "observed.py": "c2bd300449a850146c0fedec550393e0133bba03311e007106e268145fc9f2a5",
+      "trace.py": "407f7a5640385823631e1bcebe4be769efc2d5d893996614431148719abdd1d2"
+    },
+    "entrotter_engine": {
+      "__init__.py": "11f3961a518c3a40429472d8582270a306114419f588008729d8759d8da83db6",
+      "__main__.py": "f70d068680040ca780e764b1794e6ad5e94100224c9d4d1ea1954c27a8802cd2",
+      "_guardian.py": "3758412adb3e8761a3c82eac89cbf5a72bac7d0dad5c492a6825b4bb2a5f9ddf",
+      "_isolated_worker.py": "c5e72f5bd1dc12644f384b4dee9440b907cf7b1e2289ef7af9733b70e48dd794",
+      "_parent_cache.py": "56844c41bfdab2ec43e741942726b88af95702806a2a8be1476f873deb1b90da",
+      "agent.py": "de16734bc3a9dac08d51efc7721bf5bb0c0671266df8883910dc0ac64374a01c",
+      "api.py": "cab74cd6a4e62230e5d6ce5c386a341e290fb1658ba8fc75892d02f859ebae3c",
+      "artifact.py": "a76cfe6d83e28f2f15ef7fb4f9b06dc5c5d51db0c89c7fa9c9e627161527787c",
+      "consumer_observations.py": "6b5abfa00998244c0e639e38763b8594167fc7403bfe84bf8614adfcc3702711",
+      "defi.py": "f4f5e6e50ad3745426c7d0fbc08b5fa42c79fd4daa225667821814f95acb7fde",
+      "evm.py": "1ec41f147a517c4372bdf72fb5763bde1adc3075e462786ba656ff87c26dba55",
+      "export_budget.py": "2bebd29413cb86bf25acdc108d87b3f13a3ecd6ed447cd04a86a4e6a9e28614f",
+      "fixture.py": "1f771e23c8b8311bf1f5e9cc56bf30f7b369f8f617513d99024876688e809647",
+      "isolated.py": "90dce7bedd0a2f2f57478f484f868d049cc6440427a2edff744ce8badf80973d",
+      "models.py": "80de1f5ab1e52f9dd00c0f3deaa3ea1a16a0ae159eab50c0a130a2431084b7e7",
+      "parent_cache.py": "73ba002c6cce32a8a7acd6580aa432af3ebdb5aa292432f7751dbd35ac080706",
+      "rpc.py": "3e3f9c593d3a26a483c4f8f1e220bd32f959b4e87def846868b7491e70312a52",
+      "runner.py": "d483df0825e3185548e68d6ead02d9e3fb89d8a12d9b0134b04b1a6a57d4d3df",
+      "store.py": "25a6b9fe252cd0c8eef00ce5c3eb869d3a54044b00e9a67653a5c00b41749b3b",
+      "trace.py": "809bc631b0e8f7394e3a1185d54dd6100cb6cfffd6957de253688072e41bd033",
+      "worker_protocol.py": "d258d3ae5ceb7c55f45f1b0ec5dc12f7df25b2c25a0836458f40879c2b697973"
+    }
+  },
+  "scope": "Operator image and exact imported source/plan at gate launch; no RPC secrets recorded."
+}

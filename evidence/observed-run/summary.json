@@ -1,0 +1,68 @@
+{
+  "status": "local_checks_passed",
+  "base_commit": "1ee3d3aea29d1cb3c48c3658a49e5ca22df97e0e",
+  "sdk_commit": "eb9921f30c1f0f3750140f66023e3b10d255cb20",
+  "observed_engine_commit": "c2eb54dc97509e7318216c01f98adade1da5bc6e",
+  "original_agent_engine_commit": "c1671938edde03c59deef64dbb81d7c41a33406b",
+  "units": {
+    "tests": 59,
+    "skips": 0,
+    "seconds": 4.468
+  },
+  "actual_default_Docker": {
+    "cases": 3,
+    "skips": 0,
+    "seconds": 22.459,
+    "one_original_receipt_gas": 208144,
+    "one_original_receipt_logs": 8,
+    "four_complete_prices": 256292441874,
+    "price_difference": 0,
+    "actual_SIGTERM_returncode": 130,
+    "missing_worker_returncode": 1,
+    "owned_workers_after": 0
+  },
+  "quality": {
+    "full_sources": 7,
+    "Ruff_mypy": "passed",
+    "Bandit_findings": 0,
+    "locked_identities": 42,
+    "reported_Python_advisories": 0
+  },
+  "image_id": "sha256:840d03df90859a63d5a3e1f8403a68c27681577d41d6c9f82669c0c730febc4e",
+  "image_manifest_sha256": "9415ec98ca414a779d1590f2878166cca89666f6b0292f7f738a45b8d9808877",
+  "actual_image_binding": "launch.json records operator image and exact source/plan hashes; frozen manifest22inputs match pinned Enginec2eb",
+  "commands": {
+    "units": "PYTHONPATH=src:<SDK_SOURCE>/src python -m unittest discover -s tests -v",
+    "actual": "PYTHONPATH=src:<SDK_SOURCE>/src:<ENGINE_SOURCE>/src python -m unittest discover -s tests_observed -v"
+  },
+  "environment": {
+    "Python": "Python 3.13.0",
+    "host": "macOS, configured local Docker Unix socket, source-built image",
+    "RPC": "https://eth.drpc.org",
+    "plan": "engine@c2eb54d:tests/data/canonical-mainnet-prefix.json"
+  },
+  "failures_retained": {
+    "baseline-regression.log": {
+      "raw_sha256": "3d4ada7fd842ced50285ebe900ee0cd6862b80ec415415888511d97cfc86c543",
+      "retained_privately": true
+    },
+    "actual-first.log": {
+      "raw_sha256": "170b6869d34ba08532a990e4ee516cdd1751d6ab11d66464befdd52b4463b748",
+      "retained_privately": true
+    }
+  },
+  "scope": [
+    "One-input partial historical replay; no new32 CLI run/model/browser/OS-Cargo audit or performance claim.",
+    "Local configured Docker execution; no clean VM/startup or upstream provider authenticity guarantee.",
+    "Independent core review passed; final staged review and current-head mandatory CI are separate.",
+    "Protected-main independent human approval, Pages and submission remain pending."
+  ],
+  "earlier_core_review_scope": {
+    "review": "10b8f6850613617cf49466d423ba3343fcbdbabed6df1e0131dd567213e8c4bb",
+    "status": "Time-bound earlier core review. Changed actual-test metadata and paths are superseded; final image-bound source/evidence are reviewed separately.",
+    "exact_original_wrapper_retained_Git_blob": "0fc99a13aa25c9b0205612a55316cf2c40b0ebc0",
+    "unretrievable_original_raw_inputs": [
+      ".quality/observed-run/actual/success-summary.json"
+    ]
+  }
+}

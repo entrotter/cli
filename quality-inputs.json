@@ -1,7 +1,30 @@
 {
   "sdk_repository": "https://github.com/entrotter/sdk-python",
-  "sdk_commit": "b0c2ba3bba411e548af44101ae06e879bd7b5dc0",
+  "sdk_commit": "ba4af512784119f23b6dea63fd24c7f5d1fdde44",
   "sdk_package": "entrotter-sdk==0.1.0",
   "sample_report": "tests/data/report.json",
-  "sample_provenance": "Synthetic liquidity-shock report copied byte-for-byte from entrotter.github.io ab121348b0ffbec5650f9eadf0a0b11f639d9780; not historical market evidence"
+  "sample_provenance": "Synthetic liquidity-shock report copied byte-for-byte from entrotter.github.io ab121348b0ffbec5650f9eadf0a0b11f639d9780; not historical market evidence",
+  "agent_engine_repository": "https://github.com/entrotter/engine",
+  "agent_engine_commit": "c1671938edde03c59deef64dbb81d7c41a33406b",
+  "agent_samples": {
+    "model": "tests/data/agent-recorded-local.json",
+    "risk": "tests/data/agent-risk-local.json",
+    "provenance": "Model sample copied byte-for-byte from engine c1671938edde03c59deef64dbb81d7c41a33406b tests/data/agent-recorded-local.json; risk sample from coordination 99a7f4fe1cbface530ca63c31a9402fd264891ca evidence/agent-local-risk.json. Existing synthetic local EVM recordings, not new model/holdout evaluation."
+  },
+  "observed_samples": {
+    "actual": "tests/data/observed-price32.json",
+    "actual_sha256": "7010848300c353310fb78dab7f377daea4226633e49af3c1a384bcb3a579ba9d",
+    "synthetic_controls": "tests/data/observed-controls.json",
+    "synthetic_controls_sha256": "b68865916ac365e2ca1093c16439b4baaa628e14b3b2e209f36596f2c09bba67",
+    "provenance": "Byte-for-byte SDK eb9921f tests/data copies: actual native32-of181/skip12 recorded wrapper from engine40; six engine-sealed synthetic diagnostic controls, not new EVM/model results."
+  },
+  "observed_engine_commit": "c2eb54dc97509e7318216c01f98adade1da5bc6e",
+  "agent_sdk_commit": "eb9921f30c1f0f3750140f66023e3b10d255cb20",
+  "observed_sdk_commit": "eb9921f30c1f0f3750140f66023e3b10d255cb20",
+  "position_engine_commit": "88c6cd0d00f466ed7e870bd57c118aa50984f8b1",
+  "position_samples": {
+    "actual": "tests/data/aave-account-position13.json",
+    "actual_sha256": "cd96e04c837fa1dcc6b6cf009d58adffe3ffdaebc9fbd5b3b900d71cd2912978",
+    "provenance": "Byte-identical original Engine88c6 defaultDocker13 result through SDKba4. This recorded inspection sample is distinct from the new CLI actual execution result and synthetic dispatch/invalid-input controls."
+  }
 }

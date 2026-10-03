@@ -1,0 +1,51 @@
+test_replay_exports_complete_unchanged_record (test_agent_cli.AgentCLITests.test_replay_exports_complete_unchanged_record) ... usage: entrotter [-h] [--version] {doctor,exports,run,verify,inspect} ...
+entrotter: error: argument command: invalid choice: 'replay' (choose from 'doctor', 'exports', 'run', 'verify', 'inspect')
+ERROR
+
+======================================================================
+ERROR: test_replay_exports_complete_unchanged_record (test_agent_cli.AgentCLITests.test_replay_exports_complete_unchanged_record)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/argparse.py", line 1916, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+                      ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/argparse.py", line 2129, in _parse_known_args
+    positionals_end_index = consume_positionals(start_index)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/argparse.py", line 2105, in consume_positionals
+    take_action(action, args)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/argparse.py", line 1977, in take_action
+    argument_values = self._get_values(action, argument_strings)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/argparse.py", line 2542, in _get_values
+    self._check_value(action, value[0])
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/argparse.py", line 2588, in _check_value
+    raise ArgumentError(action, msg % args)
+argparse.ArgumentError: argument command: invalid choice: 'replay' (choose from 'doctor', 'exports', 'run', 'verify', 'inspect')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<cli-checkout>/tests/test_agent_cli.py", line 17, in test_replay_exports_complete_unchanged_record
+    self.assertEqual(main(['replay',str(REFERENCE),'-o',str(target)]),0)
+                     ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<cli-checkout>/src/entrotter_cli/main.py", line 71, in main
+    args = parser().parse_args(argv)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/argparse.py", line 1880, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+                 ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/argparse.py", line 1918, in parse_known_args
+    self.error(str(err))
+    ~~~~~~~~~~^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/argparse.py", line 2665, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/argparse.py", line 2652, in exit
+    _sys.exit(status)
+    ~~~~~~~~~^^^^^^^^
+SystemExit: 2
+
+----------------------------------------------------------------------
+Ran 1 test in 0.004s
+
+FAILED (errors=1)

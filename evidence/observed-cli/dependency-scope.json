@@ -1,0 +1,15 @@
+{
+  "runtime": [
+    "entrotter-sdk==0.1.0"
+  ],
+  "build": [
+    "setuptools==84.0.0"
+  ],
+  "optional_runtime": {},
+  "audited_locked_packages": 42,
+  "local_runtime": {
+    "entrotter-sdk": "0.1.0"
+  },
+  "local_runtime_scope": "Pinned source checked separately, not a registry advisory audit",
+  "local_sdk_commit": "eb9921f30c1f0f3750140f66023e3b10d255cb20"
+}

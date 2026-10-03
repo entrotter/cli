@@ -1,0 +1,6 @@
+{
+  "returncode": 1,
+  "stderr": "Error: ENTROTTER_WORKER_IMAGE must be a built immutable image ID\n",
+  "destination_preserved": true,
+  "owned_workers_after": []
+}

@@ -1,0 +1,36 @@
+{
+  "status": "failure_retention_patch_pending_current_CI",
+  "failed_head": "c04de306cd8f212a1340143d630c88646262bd27",
+  "original_tests_run": 37115555088,
+  "agent_job": 111181583718,
+  "github_run": "https://github.com/entrotter/cli/actions/runs/37115555088",
+  "original_attempt": 1,
+  "five_other_checks_success": true,
+  "failed_step": "Compare actual account replay and cancellation through CLI and SDK",
+  "observed_failure": "CLI returned0; SDK accepted structurally valid record; trace.baseline_verified assertion False. Missing worker and admittedSIGTERM cases passed; final labelled-worker cleanup gate passed.",
+  "failed_actual_result_exported": false,
+  "root_cause": "unknown: full failed position result was not retained by original test before assertions",
+  "original_full_log_sha256": "445ce61efc16b3e616c7c49a9a6c03371cde32c063cd64feb0bcdea4f248b413",
+  "old_test_sha256": "27a64659c55541944eb31c8d16419c056c61e7273ac4071eb8cee0acb6a21a40",
+  "retention_test_sha256": "513398839db6bc06366d3eb30cdf1dd6c76d8bb966fda47f7be387edf828e0d7",
+  "focused_synthetic_regression": {
+    "test": "tests/test_position_evidence.py",
+    "source_sha256": "0726fe08fba223d13de7ee0cc7fd173a62d587d7dabe0e6a3f532d1852319b82",
+    "log_sha256": "035a940551d5c07ec0cfd6fd750dcbb6f531efefbbd7c183dc81754bbe546607",
+    "tests": 1,
+    "status": "pass",
+    "scope": "Mocked child/parser false baseline: proof assertion still fails; exact result bytes and process outputs survive. No actual RPC/worker/model run."
+  },
+  "patch_scope": "Keep every original receipt/full-record/proof assertion. Persist exact child file/process results before any assertion; no product/runtime/image/SDK/workflow/dependency changes.",
+  "limits": [
+    "Unknown failure cause is not assigned to provider, runtime or product.",
+    "Prior successful local3 and current5CI results do not prove failed originalCIaccount result.",
+    "Required actual3 will execute at the corrected new head; no assertion weakening, alternate provider, native fallback, deadline reset or fixture substitution."
+  ],
+  "current_local_units": {
+    "tests": 75,
+    "skips": 0,
+    "full_log_sha256": "04a5b0ccca26e4a2f01546d6abdbec5080383eb3358fc9b6719746c32aed3b63",
+    "scope": "All prior74 plus new failure-retention regression; no real archive execution repeated."
+  }
+}

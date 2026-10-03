@@ -1,0 +1,22 @@
+{
+  "status": "local_checks_passed",
+  "tests": 49,
+  "skips": 0,
+  "new_command_test_groups": 7,
+  "original_actual_wrapper_sha256": "7010848300c353310fb78dab7f377daea4226633e49af3c1a384bcb3a579ba9d",
+  "synthetic_controls_sha256": "b68865916ac365e2ca1093c16439b4baaa628e14b3b2e209f36596f2c09bba67",
+  "source_files": 6,
+  "Bandit_findings": 0,
+  "locked_identities": 42,
+  "SDK_original_full_CI_review_sha256": "3852b7acb5185af14886e672d2fa3fc7a5c721ad56d1414d3bc12c6c81cb72f1",
+  "lock_reuse": "CLI requirements-quality.txt byte-identical to SDKeb original audited lock; no local advisory database rerun; new mandatory CI still audits it.",
+  "wheel_sha256": "1115a1c3ca358b62097fb9b8a6d06e5b072d2a4e3de9d0b1d8d0d6c9894bd8e3",
+  "wheel_commands": [
+    "doctor",
+    "verify",
+    "inspect",
+    "observed-verify",
+    "observed-inspect"
+  ],
+  "scope": "Offline recorded data inspection, not fresh chain/model/browser or strategy/profit/provider authentication. Software review, current mandatory CI and human main approval separate."
+}

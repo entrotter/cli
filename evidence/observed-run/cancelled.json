@@ -1,0 +1,7 @@
+{
+  "returncode": 130,
+  "stderr": "Error: Owned consumer observation cancelled\n",
+  "actual_worker_admitted": true,
+  "destination_preserved": true,
+  "owned_workers_after": []
+}

@@ -1,0 +1,73 @@
+{
+  "status": "core_and_CI_source_PASS",
+  "base": "1ee3d3aea29d1cb3c48c3658a49e5ca22df97e0e",
+  "inputs_sha256": {
+    "src/entrotter_cli/main.py": "6f0a68f7179ee1e1571d0bba9bf6e45dc94a9cc4c5ba9e4dd6bf9b4d2f4d7678",
+    "src/entrotter_cli/observed_run.py": "35c34a523af62c4b0093501fb8298e40fc5a35fc7eb3b2f06d6197a588bdbc6e",
+    "typings/entrotter_engine/consumer_observations.pyi": "fa78b690c125ca42a4b448877f681abc91477e1652666483d234474b36a34db0",
+    "typings/entrotter_engine/trace.pyi": "95a1005fcfc6a67a01e70a5134fa7c66a6d57ecbec4db841a123844d3149b586",
+    "tests/test_observed_run.py": "1d7ec85771a666bd1c4254ceb21d9de9eeef53f2c4da27f22be62f775db640e3",
+    "tests_observed/test_observed_cli.py": "eb5e628c4ecc700130776d2b175b4aa7a801af0644b1941b934fad6d4618e41c",
+    ".github/workflows/ci.yml": "cc2f796783abf51ca0c836a1f9f4d6fdb663ab4139ec47d3f4a6a151ad279189",
+    "quality-inputs.json": "acdbd1bd559f26239629e5bfd20cb78889389cf659d90c93b7243912739d8515",
+    "engine@c2eb54dc97509e7318216c01f98adade1da5bc6e:scripts/build_worker.py": "fe2dd9a1104582758f072413f3d0455397b5dc3f685e4df328cdc44ede9ffef8",
+    "engine@c2eb54dc97509e7318216c01f98adade1da5bc6e:src/entrotter_engine/trace.py": "809bc631b0e8f7394e3a1185d54dd6100cb6cfffd6957de253688072e41bd033",
+    "engine@c2eb54dc97509e7318216c01f98adade1da5bc6e:src/entrotter_engine/consumer_observations.py": "6b5abfa00998244c0e639e38763b8594167fc7403bfe84bf8614adfcc3702711",
+    ".quality/observed-run/units-strict-plan.log": "234e198a5ee2dc6833da015427c6a24ffc1ce57d8cadf2135e1ced1b0a7e09b7",
+    ".quality/observed-run/actual-first.log": "170b6869d34ba08532a990e4ee516cdd1751d6ab11d66464befdd52b4463b748",
+    ".quality/observed-run/actual-final.log": "1fb316bc928c25a7a5f46e4a81cabbfd6ee73c3e515eef23c6d1c98aaae8bdaa",
+    ".quality/observed-run/actual-strict-plan.log": "556827d197d9743b21e5f50dda4d0e743c9d2efc3dceb9664163eb867489b0fb",
+    ".quality/observed-run/lint-strict-plan.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    ".quality/observed-run/format-strict-plan.log": "5b9f70ad96522f492ef846065642c069b5627379aff2ab3f74acd2e3b9ecfe34",
+    ".quality/observed-run/types-strict-plan.log": "050c52a2b0c61e8b681ef5c485e0bc03340b8d55148e0acef27d744c8be42033",
+    ".quality/observed-run/security-strict-plan.log": "a458b9dca33ef8b1671ba26c64b9cbc376e6b7752a7dcf0cf64b3d680ff57fcb",
+    ".quality/observed-run/baseline-regression.log": "3d4ada7fd842ced50285ebe900ee0cd6862b80ec415415888511d97cfc86c543",
+    ".quality/observed-run/actual/observed-trace.json": "7f8f0f18fb8ae6ebb83171c007180a7cc4d0208f96dcf22e9477d30344cedac5",
+    ".quality/observed-run/actual/cancelled.json": "4805a46088342c649894ae2d3cb9e248f0513cd1e520d2d35e425ba5eb1b4d9f",
+    ".quality/observed-run/actual/missing-worker.json": "3f9c52d3a82b5ee05fe828367b07b61800ab74fd34d23abfeb8a540f276d2bdc",
+    ".quality/observed-run/actual/success-summary.json": "9d43a51ff26bb84b511c89cb1133a869e8a8cca6bc77017b33c0b19cb04e7ddc"
+  },
+  "findings": [],
+  "resolved_findings": [
+    {
+      "priority": 1,
+      "file": ".github/workflows/ci.yml",
+      "issue": "New pinned c2eb image-build step omitted step-local PYTHONPATH despite mandatory entrotter_engine import.",
+      "resolution": "Parent added env PYTHONPATH:_deps/observed-engine/src before final core binding. Source fix verified; new actual CI execution remains pending."
+    }
+  ],
+  "reviewer_setup_corrections": [
+    "First author actual log safely reports missing matching Engine instead of disclosing the underlying validate_trace_plan import symbol; reviewer assertion narrowed to observed finite failure, no retrospective direct cause evidence claimed from this log alone."
+  ],
+  "source_review": {
+    "CLI_fixed_local_only_interface": true,
+    "strict256KiB_regular_JSON_duplicate_and_recursion_refusal": true,
+    "admitted_deep_snapshot_independent_full_SDK_wrapper_plan_binding": true,
+    "existing_quota_writer_and_v01_agent_helpers_AST_unchanged": true,
+    "SIGTERM_KeyboardInterrupt_callback_restore_130_and_explicit_deadline124": true,
+    "no_public_API_native_profile_callback_selector_or_fallback": true,
+    "old_c167_agent_steps_and_unitmatrix_preserved": true
+  },
+  "existing_author_evidence": {
+    "full_units": 59,
+    "unit_seconds": 4.468,
+    "actual_default_Docker_controls": 3,
+    "actual_seconds": 22.499,
+    "one_baseline_gas": 208144,
+    "one_baseline_logs": 8,
+    "four_complete_price_views": 256292441874,
+    "actual_admitted_SIGTERM_code": 130,
+    "actual_missing_worker_code": 1,
+    "all_author_workers_after": 0,
+    "first_actual_import_name_failure_retained": true,
+    "strict_source_Ruff_mypy_fullBandit7_zero_findings": true
+  },
+  "scope": [
+    "Read-only independent source/raw proof review; no tests/scanners/replays/CI/network executed by reviewer.",
+    "Current core-only prepublication review; final docs/staged evidence/wheel/dependency/full exact-head CI audit pending.",
+    "Author actual3 observed controls reuse configured local Docker840/c2eb; one-input historical result, no default32 CLI execution or speed/provider guarantee claimed.",
+    "SIGTERM while owned worker live was proven by actual author control; post-export interruption may happen after valid atomic commit, no transaction-level cancellation rollback promise.",
+    "Installed Engine/SDK remain trusted optional dependencies; no provider authenticity/signed consumer strategy/profit/full-block or GitHubhumanapproval claim."
+  ],
+  "review_script_sha256": "fca3aec7fcbccc96c4cee3921c534849f7ae1f181a3c49a0004f5c4c2ec49d8b"
+}

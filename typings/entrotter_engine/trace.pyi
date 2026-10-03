@@ -1,0 +1,3 @@
+"""Optional installed trace-plan validation; no Engine runtime dependency."""
+
+def validate_plan(plan: dict) -> dict: ...

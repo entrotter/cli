@@ -1,0 +1,14 @@
+{
+  "reviewed_head": "87cfe4078dfaaaa3eebcbff65bcedc8d60013cc8",
+  "reviewer": "independent Codex review agent, not a GitHub approving reviewer",
+  "scope": "CLI a63a390..87cfe40, matching SDK envelope and bounded engine worker; focused stdlib checks, no full CI or Docker rerun by reviewer",
+  "finding": {
+    "priority": "P3",
+    "file": "src/entrotter_cli/main.py",
+    "line_at_reviewed_head": 128,
+    "issue": "A hash-resealed response.step overwrites the causal observation step in inspect while the engine rejects the extra typed response field.",
+    "reproduction": "Original model sample, first response with step31, resealed artifact hash: inspect succeeds and mislabels actual step0 as31."
+  },
+  "resolution": "Exact response key validation and final observation-step precedence; inspection rejects without engine; replay refuses before execution and preserves incumbent output.",
+  "followup_review": "Three focused checks passed; no remaining actionable finding in fix. Not an independent GitHub approval."
+}

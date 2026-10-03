@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           repository: entrotter/sdk-python
-          ref: b0c2ba3bba411e548af44101ae06e879bd7b5dc0
+          ref: ba4af512784119f23b6dea63fd24c7f5d1fdde44
           path: _deps/sdk
           persist-credentials: false
       - name: Install only hash-verified locked tool wheels
@@ -56,6 +56,10 @@ jobs:
           "$RUNNER_TEMP/cli-wheel-venv/bin/python" -I -m entrotter_cli doctor
           "$RUNNER_TEMP/cli-wheel-venv/bin/python" -I -m entrotter_cli verify tests/data/report.json
           "$RUNNER_TEMP/cli-wheel-venv/bin/python" -I -m entrotter_cli inspect tests/data/report.json
+          "$RUNNER_TEMP/cli-wheel-venv/bin/python" -I -m entrotter_cli observed-verify tests/data/observed-price32.json
+          "$RUNNER_TEMP/cli-wheel-venv/bin/python" -I -m entrotter_cli observed-inspect tests/data/observed-price32.json
+          "$RUNNER_TEMP/cli-wheel-venv/bin/python" -I -m entrotter_cli position-verify tests/data/aave-account-position13.json
+          "$RUNNER_TEMP/cli-wheel-venv/bin/python" -I -m entrotter_cli position-inspect tests/data/aave-account-position13.json
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:

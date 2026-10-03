@@ -1,0 +1,117 @@
+{
+  "status": "local_pass",
+  "base": "d437ad14828cf63f19091656b68e4b9a2b842ad4",
+  "sdk_commit": "ba4af512784119f23b6dea63fd24c7f5d1fdde44",
+  "engine_commit": "88c6cd0d00f466ed7e870bd57c118aa50984f8b1",
+  "source_sha256": {
+    "src/entrotter_cli/observed_run.py": "35c34a523af62c4b0093501fb8298e40fc5a35fc7eb3b2f06d6197a588bdbc6e",
+    "src/entrotter_cli/export_budget.py": "2bebd29413cb86bf25acdc108d87b3f13a3ecd6ed447cd04a86a4e6a9e28614f",
+    "src/entrotter_cli/__init__.py": "11f3961a518c3a40429472d8582270a306114419f588008729d8759d8da83db6",
+    "src/entrotter_cli/position_run.py": "c0a6fccf18fe4478b62c010a535b64829fd21eb3791565973beab8b9231db0ed",
+    "src/entrotter_cli/main.py": "ce784c48ad2d6d4313f463e399fdc5f50a3b40f612fe801b05a6b2fe8d17f0b2",
+    "src/entrotter_cli/__main__.py": "130acafaef8483625c857235eb995dace14121a5ba10eec2c7464c9f045153a7",
+    "scripts/check_dependency_manifest.py": "fd9eaa329e7a27ee8b21ca3b7ecdb2ca2afb022bea1ebcecff2d5faaac52fcaf",
+    "scripts/check_security.py": "58de6896402c89d235a22a9e9bb2895ece68f20e7b9dd91966ea15fefad24c07"
+  },
+  "sample_sha256": "cd96e04c837fa1dcc6b6cf009d58adffe3ffdaebc9fbd5b3b900d71cd2912978",
+  "units": {
+    "tests": 74,
+    "seconds": 5.657,
+    "skips": 0,
+    "new_position_groups": 15,
+    "full_log_sha256": "0cdf5abcf7833ed053cb90b5814d7ffa197859e0a95baca047347fdb7f855407"
+  },
+  "actual": {
+    "tests": 3,
+    "seconds": 89.669,
+    "skips": 0,
+    "full_log_sha256": "aadc16419f24ebe4228eb7ce7a08beb75986c5c6aae7c4d076dfa7b2c12dd28d",
+    "source_and_image": {
+      "image_id": "sha256:2a0f2bc417193b158ef24247d6bb9af8fa52572fa8b61a8e3a0942e95fc50d25",
+      "source_files": {
+        "fixture.py": "1f771e23c8b8311bf1f5e9cc56bf30f7b369f8f617513d99024876688e809647",
+        "store.py": "25a6b9fe252cd0c8eef00ce5c3eb869d3a54044b00e9a67653a5c00b41749b3b",
+        "trace.py": "cd3549e8e93708cf5ac20814de49f57552a1886ab6378084cdb7772df74c0ef4",
+        "runner.py": "d483df0825e3185548e68d6ead02d9e3fb89d8a12d9b0134b04b1a6a57d4d3df",
+        "export_budget.py": "2bebd29413cb86bf25acdc108d87b3f13a3ecd6ed447cd04a86a4e6a9e28614f",
+        "evm.py": "1ec41f147a517c4372bdf72fb5763bde1adc3075e462786ba656ff87c26dba55",
+        "artifact.py": "a76cfe6d83e28f2f15ef7fb4f9b06dc5c5d51db0c89c7fa9c9e627161527787c",
+        "models.py": "80de1f5ab1e52f9dd00c0f3deaa3ea1a16a0ae159eab50c0a130a2431084b7e7",
+        "position_observations.py": "0f4608b8a86fdbda3436beb4e109be7f5ebdc156208ecd55de7c4a851cdad7ee",
+        "_parent_cache.py": "56844c41bfdab2ec43e741942726b88af95702806a2a8be1476f873deb1b90da",
+        "isolated.py": "cd74fcc8912561a3d140056b42561109ca891e2bd576466c9266b14d0dc0a120",
+        "__init__.py": "11f3961a518c3a40429472d8582270a306114419f588008729d8759d8da83db6",
+        "api.py": "cab74cd6a4e62230e5d6ce5c386a341e290fb1658ba8fc75892d02f859ebae3c",
+        "rpc.py": "3e3f9c593d3a26a483c4f8f1e220bd32f959b4e87def846868b7491e70312a52",
+        "consumer_observations.py": "6b5abfa00998244c0e639e38763b8594167fc7403bfe84bf8614adfcc3702711",
+        "agent.py": "de16734bc3a9dac08d51efc7721bf5bb0c0671266df8883910dc0ac64374a01c",
+        "_guardian.py": "3758412adb3e8761a3c82eac89cbf5a72bac7d0dad5c492a6825b4bb2a5f9ddf",
+        "defi.py": "f4f5e6e50ad3745426c7d0fbc08b5fa42c79fd4daa225667821814f95acb7fde",
+        "parent_cache.py": "73ba002c6cce32a8a7acd6580aa432af3ebdb5aa292432f7751dbd35ac080706",
+        "__main__.py": "ae2dc0c82d302e3ed27275510fbc5df59cdfef9b2487c3f9d6acd7f046b981d4",
+        "worker_protocol.py": "9633b0234322fe5e755eada3bba15033cc70b53db96b87a2b1686d99795aa62e",
+        "_isolated_worker.py": "c5e72f5bd1dc12644f384b4dee9440b907cf7b1e2289ef7af9733b70e48dd794",
+        "Dockerfile": "2fc42c30c4aac2e760db25c5306def65d294236307bd09348ee8646f83a33fd1"
+      },
+      "source_digest": "2af2329abdf190ab7d1a4135b171ee805940a4a7c486a23acaff5b9c5d815b27",
+      "matches_current_engine": true,
+      "engine_commit": "88c6cd0d00f466ed7e870bd57c118aa50984f8b1"
+    },
+    "whole_stable_original_trace_and_four_price_account_configuration_code_head_records_match": true,
+    "scope": "Separate current local default13 CLI execution; no native fallback or fresh model call. Missing-image and SIGTERM130 admitted-worker/incumbent cleanup are tested."
+  },
+  "quality": {
+    "production_sources": 8,
+    "ruff_lint": "pass",
+    "ruff_format_with_typings": "pass12files",
+    "mypy": "pass8sources with matching SDK path and optional Engine stubs",
+    "bandit": "full8 sources,0findings,0nosec/skipped rules",
+    "dependency_scope": {
+      "runtime": [
+        "entrotter-sdk==0.1.0"
+      ],
+      "build": [
+        "setuptools==84.0.0"
+      ],
+      "optional_runtime": {},
+      "audited_locked_packages": 42,
+      "local_runtime": {
+        "entrotter-sdk": "0.1.0"
+      },
+      "local_runtime_scope": "Pinned source checked separately, not a registry advisory audit",
+      "local_sdk_commit": "ba4af512784119f23b6dea63fd24c7f5d1fdde44"
+    },
+    "new_local_advisory_query": false,
+    "wheel": {
+      "cli_sha256": "83c01e878c6cc63c6d25e9e0237db38508ad48d75cc09c9a47cc5f1f70ce6a91",
+      "sdk_sha256": "b13878facfda9106858deac67bae1976175fb0ff030483a02ba396f783e27797",
+      "cli_modules": 6,
+      "sdk_modules": 5,
+      "isolated_no_engine": true
+    },
+    "docs": {
+      "tracked_files": 9,
+      "links": 38,
+      "successful": 37,
+      "errors": 0,
+      "timeouts": 0,
+      "exclusions": 1,
+      "report_sha256": "3cb93245e95a98d74b27a274d479066331ad52e7d5e6ba6c347a6056a8d318b8",
+      "scope": "Final staged tracked documentation; no Markdown bytes changed after scan."
+    }
+  },
+  "retained_failures": [
+    "Pre-implementation regression confirms new CLI commands absent.",
+    "First two offline assertions compared decoded JSON lists to Python frozen tuples; test-only JSON normalization fixes expected representation.",
+    "Initial mypy used old installed SDK and lacked new optional Engine stub; current SDK path and position boundary stub resolve without suppressions."
+  ],
+  "limits": [
+    "Dispatch/malformed-input fakes are synthetic and independent of actual Docker3.",
+    "Recorded inspection sample is the original Engine88c6 result, distinct from new actual CLI execution.",
+    "No provider/proxy/source/signature authentication, profit, signed strategy, loan/liquidation or sole-WETH causal inference.",
+    "No new kernel/OS/Cargo/model/binary-security/performance comparison claimed; separate Engine controls retain their scope.",
+    "42tool-lock identities unchanged; prior advisory results reused locally, current CI queries anew.",
+    "Original frozen risk/model and price gates retain SDK/Engine pins; only new gate selects matching account versions.",
+    "Current-head CI, coordinator refs, independent human main approval and Pages remain separate."
+  ]
+}

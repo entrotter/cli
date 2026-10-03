@@ -1,0 +1,8 @@
+test_actual_default_account_replay_exports_full_verified_records (test_position_cli.ActualPositionCLI.test_actual_default_account_replay_exports_full_verified_records) ... ok
+test_missing_worker_fails_without_export_or_native_fallback (test_position_cli.ActualPositionCLI.test_missing_worker_fails_without_export_or_native_fallback) ... ok
+test_real_SIGTERM_cancels_owned_worker_and_preserves_destination (test_position_cli.ActualPositionCLI.test_real_SIGTERM_cancels_owned_worker_and_preserves_destination) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 89.669s
+
+OK
